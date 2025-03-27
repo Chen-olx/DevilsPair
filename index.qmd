@@ -2,4 +2,4 @@
 title: "DevilsPair"
 ---
 
-This is a Quarto website. Welcome.
+Hello and welcome!
