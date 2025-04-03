@@ -1,1 +1,21 @@
-/* css styles */
+/* 仅修改导航栏的背景色，不影响 darkly 主题的整体风格 */
+.navbar {
+    background-color: #001f3f !important; /* 深蓝色 */
+}
+
+/* 确保导航栏的文本仍然符合 darkly 主题 */
+.navbar a {
+    color: white !important; /* 保持白色文字 */
+}
+
+.navbar a:hover {
+    color: #f8f9fa !important; /* 悬停时颜色更浅 */
+}
+
+/* 动态渐变背景 */
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #0a192f; /* 黑色背景 */
+}
