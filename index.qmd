@@ -1,9 +1,5 @@
 ---
 title: "DevilsPair"
-format:
-  html:
-    theme: [darkly]
-    css: styles.css
 ---
 
 # Product Overview
