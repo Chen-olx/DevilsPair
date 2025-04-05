@@ -11,27 +11,41 @@
     "href": "index.html",
     "title": "DevilsPair",
     "section": "",
-    "text": "High Performance: Optimized for speed and efficiency.\nUser-Friendly: Intuitive interface with seamless experience.\nScalability: Adapts to both small and large-scale needs.\nSecurity: Built with robust protection measures.\n\n\n\n\n\n\n\n🚀 Fast Processing\n🔒 Top-notch Security\n🌍 Global Accessibility\n\n\n\n🎯 High Accuracy\n⚡ Seamless Integration\n📈 Scalable Growth\n\n\n\n\n\n\n\nFinancial Analytics - Real-time data processing and insights.\nE-commerce - Secure transactions and intelligent recommendations.\nAI Applications - Enhanced automation with machine learning models.\n\n\nStay ahead with DevilsPair—innovation meets efficiency!"
+    "text": "A market-neutral trading strategy that identifies two correlated assets and exploits temporary price divergences\nTraders long the underperforming asset and short the outperforming asset, assuming they will revert to their historical relationship.\n\n\n\n\n\n\n\nIdentify a Pair (e.g., stocks in the same industry: KO vs. PEP).\nMeasure Correlation (using statistical tests like cointegration).\nDefine Entry & Exit Rules (e.g., trading when price ratio deviates from mean by 2 standard deviations).\n\n\n\nExecute Trades (Long underperformer, Short outperformer).\nClose Position when spread reverts to the mean.\n\n\n\n\n\n\n\nIdentifying Candidate Pairs\n\n\nStart by selecting assets that have a fundamental or economic relationship, such as:\n\nStocks within the same industry (e.g., Coca-Cola & Pepsi, Visa & Mastercard)\nETF pairs (e.g., SPY & IVV, QQQ & XLK)\nCommodity-related pairs (e.g., Oil & Natural Gas, Gold & Silver)\nCurrency pairs (e.g., EUR/USD & GBP/USD)\nBond pairs (e.g., U.S. Treasuries of different maturities)\n\n\n\nChecking Stock Correlation\n\n\nPearson correlation (short-term relationship) – A high correlation (&gt;0.8) suggests similar movements\nRolling correlation\nHedge Ratio Calculation – Use OLS to estimate hedge ratio\n\n\nStatistical Cointegration Analysis\n\n\nTest for cointegration to ensure the pair moves together in the long run. Use:\nAugmented Dickey-Fuller (ADF) test: To check if the spread between the two assets is stationary.\nEngle-Granger Test: Tests whether two assets are cointegrated.\nJohansen Test: More advanced test for multiple time series.\n\n\n\n\n\n\n\n\nXOM vs CVX\n\n\n\n\n\n\n\n\n\n\n\n\nMetrics\nValue\n\n\n\n\n0\nADF Test Statistic\n-3.196165\n\n\n1\nJohansen Cointegration Test\n21.901100\n\n\n2\nCorrelation coefficient\n0.144387\n\n\n\n\n\n\n\n\n\n\nIf the z-score of the spread between the two assets exceeds +2, it indicates that asset A is overvalued relative to asset B. The strategy enters a position by shorting A and longing B, expecting the spread to revert to the mean.\nIf the z-score falls below -2, it indicates that asset A is undervalued relative to asset B. The strategy enters a position by longing A and shorting B, again expecting mean reversion.\n\n\n\n\n\nIf the absolute value of the z-score drops below 0.5, the spread is considered to have mean-reverted. The strategy takes profit by closing the position.\nIf the z-score moves further away and exceeds ±3, the spread is diverging instead of reverting. The strategy triggers a stop-loss to cut potential losses.\n\n\nStay ahead with DevilsPair—innovation meets efficiency!"
   },
   {
     "objectID": "index.html#features",
     "href": "index.html#features",
     "title": "DevilsPair",
     "section": "",
-    "text": "High Performance: Optimized for speed and efficiency.\nUser-Friendly: Intuitive interface with seamless experience.\nScalability: Adapts to both small and large-scale needs.\nSecurity: Built with robust protection measures."
+    "text": "A market-neutral trading strategy that identifies two correlated assets and exploits temporary price divergences\nTraders long the underperforming asset and short the outperforming asset, assuming they will revert to their historical relationship."
   },
   {
-    "objectID": "index.html#advantages",
-    "href": "index.html#advantages",
+    "objectID": "index.html#how-it-works",
+    "href": "index.html#how-it-works",
     "title": "DevilsPair",
     "section": "",
-    "text": "🚀 Fast Processing\n🔒 Top-notch Security\n🌍 Global Accessibility\n\n\n\n🎯 High Accuracy\n⚡ Seamless Integration\n📈 Scalable Growth"
+    "text": "Identify a Pair (e.g., stocks in the same industry: KO vs. PEP).\nMeasure Correlation (using statistical tests like cointegration).\nDefine Entry & Exit Rules (e.g., trading when price ratio deviates from mean by 2 standard deviations).\n\n\n\nExecute Trades (Long underperformer, Short outperformer).\nClose Position when spread reverts to the mean."
   },
   {
-    "objectID": "index.html#use-cases",
-    "href": "index.html#use-cases",
+    "objectID": "index.html#assets-chosen",
+    "href": "index.html#assets-chosen",
     "title": "DevilsPair",
     "section": "",
-    "text": "Financial Analytics - Real-time data processing and insights.\nE-commerce - Secure transactions and intelligent recommendations.\nAI Applications - Enhanced automation with machine learning models.\n\n\nStay ahead with DevilsPair—innovation meets efficiency!"
+    "text": "Identifying Candidate Pairs\n\n\nStart by selecting assets that have a fundamental or economic relationship, such as:\n\nStocks within the same industry (e.g., Coca-Cola & Pepsi, Visa & Mastercard)\nETF pairs (e.g., SPY & IVV, QQQ & XLK)\nCommodity-related pairs (e.g., Oil & Natural Gas, Gold & Silver)\nCurrency pairs (e.g., EUR/USD & GBP/USD)\nBond pairs (e.g., U.S. Treasuries of different maturities)\n\n\n\nChecking Stock Correlation\n\n\nPearson correlation (short-term relationship) – A high correlation (&gt;0.8) suggests similar movements\nRolling correlation\nHedge Ratio Calculation – Use OLS to estimate hedge ratio\n\n\nStatistical Cointegration Analysis\n\n\nTest for cointegration to ensure the pair moves together in the long run. Use:\nAugmented Dickey-Fuller (ADF) test: To check if the spread between the two assets is stationary.\nEngle-Granger Test: Tests whether two assets are cointegrated.\nJohansen Test: More advanced test for multiple time series."
+  },
+  {
+    "objectID": "index.html#case-xom-vs-cvx",
+    "href": "index.html#case-xom-vs-cvx",
+    "title": "DevilsPair",
+    "section": "",
+    "text": "XOM vs CVX\n\n\n\n\n\n\n\n\n\n\n\n\nMetrics\nValue\n\n\n\n\n0\nADF Test Statistic\n-3.196165\n\n\n1\nJohansen Cointegration Test\n21.901100\n\n\n2\nCorrelation coefficient\n0.144387\n\n\n\n\n\n\n\n\n\n\nIf the z-score of the spread between the two assets exceeds +2, it indicates that asset A is overvalued relative to asset B. The strategy enters a position by shorting A and longing B, expecting the spread to revert to the mean.\nIf the z-score falls below -2, it indicates that asset A is undervalued relative to asset B. The strategy enters a position by longing A and shorting B, again expecting mean reversion.\n\n\n\n\n\nIf the absolute value of the z-score drops below 0.5, the spread is considered to have mean-reverted. The strategy takes profit by closing the position.\nIf the z-score moves further away and exceeds ±3, the spread is diverging instead of reverting. The strategy triggers a stop-loss to cut potential losses.\n\n\nStay ahead with DevilsPair—innovation meets efficiency!"
+  },
+  {
+    "objectID": "index.html#entry-signals",
+    "href": "index.html#entry-signals",
+    "title": "DevilsPair",
+    "section": "",
+    "text": "If the z-score of the spread between the two assets exceeds +2, it indicates that asset A is overvalued relative to asset B. The strategy enters a position by shorting A and longing B, expecting the spread to revert to the mean. If the z-score falls below -2, it indicates that asset A is undervalued relative to asset B. The strategy enters a position by longing A and shorting B, again expecting mean reversion.\nExit signals:\nIf the absolute value of the z-score drops below 0.5, the spread is considered to have mean-reverted. The strategy takes profit by closing the position.\nIf the z-score moves further away and exceeds ±3, the spread is diverging instead of reverting. The strategy triggers a stop-loss to cut potential losses.\n\nStay ahead with DevilsPair—innovation meets efficiency!"
   }
 ]

@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -112,11 +115,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#product-overview" id="toc-product-overview" class="nav-link active" data-scroll-target="#product-overview">Product Overview</a>
+  <li><a href="#strategy-pairs-trading" id="toc-strategy-pairs-trading" class="nav-link active" data-scroll-target="#strategy-pairs-trading">Strategy: Pairs Trading</a>
   <ul class="collapse">
   <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
-  <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
-  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use Cases</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It works</a></li>
+  <li><a href="#assets-chosen" id="toc-assets-chosen" class="nav-link" data-scroll-target="#assets-chosen">Assets Chosen</a></li>
+  <li><a href="#case-xom-vs-cvx" id="toc-case-xom-vs-cvx" class="nav-link" data-scroll-target="#case-xom-vs-cvx">Case: XOM vs CVX</a>
+  <ul class="collapse">
+  <li><a href="#entry-signals" id="toc-entry-signals" class="nav-link" data-scroll-target="#entry-signals">Entry signals:</a></li>
+  <li><a href="#exit-signals" id="toc-exit-signals" class="nav-link" data-scroll-target="#exit-signals">Exit signals:</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -143,46 +151,128 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="product-overview" class="level1">
-<h1>Product Overview</h1>
+<section id="strategy-pairs-trading" class="level1">
+<h1>Strategy: Pairs Trading</h1>
 <section id="features" class="level2">
 <h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
-<li><strong>High Performance</strong>: Optimized for speed and efficiency.</li>
-<li><strong>User-Friendly</strong>: Intuitive interface with seamless experience.</li>
-<li><strong>Scalability</strong>: Adapts to both small and large-scale needs.</li>
-<li><strong>Security</strong>: Built with robust protection measures.</li>
+<li>A market-neutral trading strategy that identifies two correlated assets and exploits temporary price divergences</li>
+<li>Traders long the underperforming asset and short the outperforming asset, assuming they will revert to their historical relationship.</li>
 </ul>
 </section>
-<section id="advantages" class="level2">
-<h2 class="anchored" data-anchor-id="advantages">Advantages</h2>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How It works</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<ul>
-<li>🚀 <strong>Fast Processing</strong></li>
-<li>🔒 <strong>Top-notch Security</strong></li>
-<li>🌍 <strong>Global Accessibility</strong></li>
-</ul>
+<ol type="1">
+<li>Identify a Pair (e.g., stocks in the same industry: KO vs.&nbsp;PEP).</li>
+<li>Measure Correlation (using statistical tests like cointegration).</li>
+<li>Define Entry &amp; Exit Rules (e.g., trading when price ratio deviates from mean by 2 standard deviations).</li>
+</ol>
 </div><div class="column" style="width:50%;">
-<ul>
-<li>🎯 <strong>High Accuracy</strong></li>
-<li>⚡ <strong>Seamless Integration</strong></li>
-<li>📈 <strong>Scalable Growth</strong></li>
-</ul>
+<ol start="4" type="1">
+<li>Execute Trades (Long underperformer, Short outperformer).</li>
+<li>Close Position when spread reverts to the mean.</li>
+</ol>
 </div>
 </div>
 </section>
-<section id="use-cases" class="level2">
-<h2 class="anchored" data-anchor-id="use-cases">Use Cases</h2>
+<section id="assets-chosen" class="level2">
+<h2 class="anchored" data-anchor-id="assets-chosen">Assets Chosen</h2>
 <ol type="1">
-<li><strong>Financial Analytics</strong> - Real-time data processing and insights.</li>
-<li><strong>E-commerce</strong> - Secure transactions and intelligent recommendations.</li>
-<li><strong>AI Applications</strong> - Enhanced automation with machine learning models.</li>
+<li>Identifying Candidate Pairs</li>
 </ol>
+<ul>
+<li>Start by selecting assets that have a fundamental or economic relationship, such as:
+<ul>
+<li>Stocks within the same industry (e.g., Coca-Cola &amp; Pepsi, Visa &amp; Mastercard)</li>
+<li>ETF pairs (e.g., SPY &amp; IVV, QQQ &amp; XLK)</li>
+<li>Commodity-related pairs (e.g., Oil &amp; Natural Gas, Gold &amp; Silver)</li>
+<li>Currency pairs (e.g., EUR/USD &amp; GBP/USD)</li>
+<li>Bond pairs (e.g., U.S. Treasuries of different maturities)</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li>Checking Stock Correlation</li>
+</ol>
+<ul>
+<li>Pearson correlation (short-term relationship) – A high correlation (&gt;0.8) suggests similar movements</li>
+<li>Rolling correlation</li>
+<li>Hedge Ratio Calculation – Use OLS to estimate hedge ratio</li>
+</ul>
+<ol start="3" type="1">
+<li>Statistical Cointegration Analysis</li>
+</ol>
+<ul>
+<li>Test for cointegration to ensure the pair moves together in the long run. Use:</li>
+<li>Augmented Dickey-Fuller (ADF) test: To check if the spread between the two assets is stationary.</li>
+<li>Engle-Granger Test: Tests whether two assets are cointegrated.</li>
+<li>Johansen Test: More advanced test for multiple time series.</li>
+</ul>
+</section>
+<section id="case-xom-vs-cvx" class="level2">
+<h2 class="anchored" data-anchor-id="case-xom-vs-cvx">Case: XOM vs CVX</h2>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/XOMvsCVX.png" class="img-fluid figure-img"></p>
+<figcaption>XOM vs CVX</figcaption>
+</figure>
+</div>
+</div>
+<div id="a1ce86d2" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Metrics</th>
+<th data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>ADF Test Statistic</td>
+<td>-3.196165</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Johansen Cointegration Test</td>
+<td>21.901100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Correlation coefficient</td>
+<td>0.144387</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="entry-signals" class="level3">
+<h3 class="anchored" data-anchor-id="entry-signals">Entry signals:</h3>
+<ul>
+<li>If the z-score of the spread between the two assets exceeds +2, it indicates that asset A is overvalued relative to asset B. The strategy enters a position by shorting A and longing B, expecting the spread to revert to the mean.</li>
+<li>If the z-score falls below -2, it indicates that asset A is undervalued relative to asset B. The strategy enters a position by longing A and shorting B, again expecting mean reversion.</li>
+</ul>
+</section>
+<section id="exit-signals" class="level3">
+<h3 class="anchored" data-anchor-id="exit-signals">Exit signals:</h3>
+<ul>
+<li>If the absolute value of the z-score drops below 0.5, the spread is considered to have mean-reverted. The strategy takes profit by closing the position.</li>
+<li>If the z-score moves further away and exceeds ±3, the spread is diverging instead of reverting. The strategy triggers a stop-loss to cut potential losses.</li>
+</ul>
 <hr>
 <p><em>Stay ahead with <strong>DevilsPair</strong>—innovation meets efficiency!</em></p>
 
 
+</section>
 </section>
 </section>
 
