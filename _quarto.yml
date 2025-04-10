@@ -4,17 +4,28 @@ project:
 
 website:
   title: "DevilsPair"
+  description: "Statistical Arbitrage Through Pairs Trading"
+  favicon: images/favicon.png
   navbar:
+    background: primary
+    search: true
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: indicators.qmd
+        text: Indicators
+      - href: sample pairs.qmd
+        text: Sample Pairs
+      - href: about.qmd
+        text: About
 
 format:
   html:
     theme: darkly
     css: styles.css
     toc: true
-
-
-
+    toc-title: On This Page
+    anchor-sections: true
+    html-math-method: katex
+    highlight-style: github
+    footnotes-hover: true

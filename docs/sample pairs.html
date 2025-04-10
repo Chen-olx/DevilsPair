@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – DevilsPair</title>
+<title>Sample Pairs – DevilsPair</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Indicators</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sample pairs.html"> 
+    <a class="nav-link active" href="./sample pairs.html" aria-current="page"> 
 <span class="menu-text">Sample Pairs</span></a>
   </li>  
   <li class="nav-item">
@@ -121,14 +121,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On This Page</h2>
    
   <ul>
-  <li><a href="#statistical-arbitrage-through-pairs-trading" id="toc-statistical-arbitrage-through-pairs-trading" class="nav-link active" data-scroll-target="#statistical-arbitrage-through-pairs-trading">Statistical Arbitrage Through Pairs Trading</a>
+  <li><a href="#energy-sector-pairs-xomcvx" id="toc-energy-sector-pairs-xomcvx" class="nav-link active" data-scroll-target="#energy-sector-pairs-xomcvx">Energy Sector Pairs: XOM/CVX</a>
   <ul class="collapse">
-  <li><a href="#a-market-neutral-strategy-capturing-price-divergences-between-correlated-assets" id="toc-a-market-neutral-strategy-capturing-price-divergences-between-correlated-assets" class="nav-link" data-scroll-target="#a-market-neutral-strategy-capturing-price-divergences-between-correlated-assets">A market-neutral strategy capturing price divergences between correlated assets</a></li>
+  <li><a href="#fundamental-relationship" id="toc-fundamental-relationship" class="nav-link" data-scroll-target="#fundamental-relationship">Fundamental Relationship</a></li>
+  <li><a href="#statistical-validation" id="toc-statistical-validation" class="nav-link" data-scroll-target="#statistical-validation">Statistical Validation</a></li>
+  <li><a href="#trading-parameters" id="toc-trading-parameters" class="nav-link" data-scroll-target="#trading-parameters">Trading Parameters</a></li>
   </ul></li>
-  <li><a href="#welcome-to-devilspair" id="toc-welcome-to-devilspair" class="nav-link" data-scroll-target="#welcome-to-devilspair">Welcome to DevilsPair</a></li>
-  <li><a href="#the-pairs-trading-process" id="toc-the-pairs-trading-process" class="nav-link" data-scroll-target="#the-pairs-trading-process">The Pairs Trading Process</a></li>
-  <li><a href="#key-advantages" id="toc-key-advantages" class="nav-link" data-scroll-target="#key-advantages">Key Advantages</a></li>
-  <li><a href="#case-study-xomcvx-pair" id="toc-case-study-xomcvx-pair" class="nav-link" data-scroll-target="#case-study-xomcvx-pair">Case Study: XOM/CVX Pair</a></li>
+  <li><a href="#trading-performance" id="toc-trading-performance" class="nav-link" data-scroll-target="#trading-performance">Trading Performance</a>
+  <ul class="collapse">
+  <li><a href="#key-performance-metrics" id="toc-key-performance-metrics" class="nav-link" data-scroll-target="#key-performance-metrics">Key Performance Metrics</a></li>
+  <li><a href="#trading-signals-visualization" id="toc-trading-signals-visualization" class="nav-link" data-scroll-target="#trading-signals-visualization">Trading Signals Visualization</a></li>
+  <li><a href="#strategy-insights" id="toc-strategy-insights" class="nav-link" data-scroll-target="#strategy-insights">Strategy Insights</a></li>
+  </ul></li>
+  <li><a href="#challenges-and-considerations" id="toc-challenges-and-considerations" class="nav-link" data-scroll-target="#challenges-and-considerations">Challenges and Considerations</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -137,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Sample Pairs</h1>
 </div>
 
 
@@ -154,211 +160,238 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="statistical-arbitrage-through-pairs-trading" class="level1 hero p-5 text-center bg-dark text-white rounded mb-5">
-<h1>Statistical Arbitrage Through Pairs Trading</h1>
-<section id="a-market-neutral-strategy-capturing-price-divergences-between-correlated-assets" class="level3">
-<h3 class="anchored" data-anchor-id="a-market-neutral-strategy-capturing-price-divergences-between-correlated-assets">A market-neutral strategy capturing price divergences between correlated assets</h3>
+<section id="energy-sector-pairs-xomcvx" class="level2">
+<h2 class="anchored" data-anchor-id="energy-sector-pairs-xomcvx">Energy Sector Pairs: XOM/CVX</h2>
+<p>This case study examines the performance of a statistical arbitrage strategy using Exxon Mobil (XOM) and Chevron (CVX), two major integrated oil and gas companies with similar business models and market exposures.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image1_stock_prices.png" class="img-fluid figure-img"></p>
+<figcaption>Stock Price Trend Comparison</figcaption>
+</figure>
+</div>
+<p>The chart above shows the price movements of XOM (blue line) and CVX (orange line) over our analysis period. Despite the different price scales, the two stocks clearly display similar directional movements, providing the foundation for our pairs trading strategy.</p>
+<section id="fundamental-relationship" class="level3">
+<h3 class="anchored" data-anchor-id="fundamental-relationship">Fundamental Relationship</h3>
+<p>Exxon Mobil and Chevron represent an ideal pairing for statistical arbitrage due to their strong fundamental relationship:</p>
+<ul>
+<li>Both are integrated oil majors with similar business models spanning exploration, production, refining, and retail</li>
+<li>Shared exposure to global oil and gas prices as primary profit drivers</li>
+<li>Comparable market capitalization and financial strength profiles</li>
+<li>Similar dividend policies and capital expenditure patterns</li>
+<li>Competing operations across the same geographical regions</li>
+</ul>
+<p>This fundamental similarity creates a strong economic rationale for their prices to maintain a consistent relationship over time, despite short-term divergences.</p>
+</section>
+<section id="statistical-validation" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-validation">Statistical Validation</h3>
+<p>Our comprehensive statistical analysis confirms the strong relationship between XOM and CVX:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Value</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pearson Correlation</td>
+<td>0.8497</td>
+<td>Strong positive correlation</td>
+</tr>
+<tr class="even">
+<td>Correlation Std Dev</td>
+<td>0.3172</td>
+<td>Moderate variability in correlation</td>
+</tr>
+<tr class="odd">
+<td>Stability Score</td>
+<td>-21.7160</td>
+<td>Correlation shows some instability</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image1_rolling_correlation.png" class="img-fluid figure-img"></p>
+<figcaption>Rolling Correlation</figcaption>
+</figure>
+</div>
+<p>The rolling correlation chart above demonstrates the generally strong relationship between XOM and CVX over time. The 60-day rolling correlation (purple line) and 120-day rolling correlation (orange line) both remain mostly above 0.8, though there are periods of significant drops that contribute to the negative stability score.</p>
+<p>While the correlation stability shows some concerns, the cointegration tests provide strong evidence for a tradable relationship:</p>
+<section id="cointegration-test-results" class="level4">
+<h4 class="anchored" data-anchor-id="cointegration-test-results">Cointegration Test Results</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Test</th>
+<th>Statistic</th>
+<th>Critical Value (5%)</th>
+<th>p-value</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ADF Test</td>
+<td>-2.9819</td>
+<td>-2.8654</td>
+<td>0.0366</td>
+<td>Cointegrated ✓</td>
+</tr>
+<tr class="even">
+<td>Johansen Trace</td>
+<td>24.4420</td>
+<td>15.4943</td>
+<td>-</td>
+<td>Cointegrated ✓</td>
+</tr>
+</tbody>
+</table>
+<p>Both tests confirm the presence of cointegration, indicating that while XOM and CVX prices may diverge temporarily, they tend to revert to their long-term equilibrium relationship. The hedge ratio of 0.1816 suggests that for each share of XOM, approximately 0.18 shares of CVX should be traded in the opposite direction to create a market-neutral position.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image1_spread.png" class="img-fluid figure-img"></p>
+<figcaption>Spread Mean-Reverting Series</figcaption>
+</figure>
+</div>
+<p>The spread chart above shows the difference between the two stocks (after applying the hedge ratio), demonstrating the mean-reverting property that is essential for pairs trading. While the spread appears non-stationary at times, our statistical tests confirm it is indeed mean-reverting over the analysis period.</p>
 </section>
 </section>
-<section id="welcome-to-devilspair" class="level2 mt-4">
-<h2 class="mt-4 anchored" data-anchor-id="welcome-to-devilspair">Welcome to DevilsPair</h2>
-<p>Welcome to DevilsPair, your destination for market-neutral trading strategies leveraging statistical relationships between correlated assets. Our specialized approach identifies temporary price divergences between historically related securities, allowing for strategic positions insulated from broader market movements.</p>
-<div class="columns mt-5">
-<div class="column p-3 border rounded" style="width:47%;">
-<section id="our-strategy-at-a-glance" class="level3">
-<h3 class="anchored" data-anchor-id="our-strategy-at-a-glance">Our Strategy at a Glance</h3>
-<div class="list-group">
-<div class="list-group-item bg-primary text-white">
-<p><strong>Market-Neutral Trading</strong>: Medium-term opportunities (3-14 days) with balanced long/short positions for market risk neutralization</p>
+<section id="trading-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="trading-parameters">Trading Parameters</h3>
+<p>Based on our statistical analysis, we established the following trading parameters:</p>
+<ul>
+<li><strong>Entry Signal</strong>: Z-score exceeding +/- 2.0 standard deviations</li>
+<li><strong>Exit Signal</strong>: Z-score returning to +/- 0.5 standard deviations</li>
+<li><strong>Stop-Loss</strong>: Z-score exceeding +/- 3.0 standard deviations</li>
+<li><strong>Half-Life</strong>: 42.41 days (relatively long)</li>
+<li><strong>Maximum Holding Period</strong>: 63 days (1.5× half-life)</li>
+</ul>
+<p>The half-life analysis indicates that while mean reversion does occur, it happens at a relatively slow pace. This suggests a medium-term trading horizon for this pair.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image1_zscore.png" class="img-fluid figure-img"></p>
+<figcaption>Z-Score with Trading Signals</figcaption>
+</figure>
 </div>
-<div class="list-group-item">
-<p><strong>Statistical Validation</strong>: Rigorous mathematical testing through correlation analysis and cointegration testing</p>
-</div>
-<div class="list-group-item">
-<p><strong>Precision Risk Management</strong>: Predefined entry/exit rules with automated position sizing based on historical volatility</p>
-</div>
-<div class="list-group-item">
-<p><strong>Transparency in Performance</strong>: Comprehensive metrics including trade-by-trade analysis and risk-adjusted returns</p>
-</div>
-</div>
+<p>The Z-score chart above shows the normalized spread with our entry and exit thresholds. When the Z-score crosses above +2 or below -2 (red dashed lines), we enter a trade in the direction of mean reversion. The frequent oscillation of the Z-score around these thresholds provides numerous trading opportunities.</p>
 </section>
-</div><div class="column" style="width:6%;">
+</section>
+<section id="trading-performance" class="level2">
+<h2 class="anchored" data-anchor-id="trading-performance">Trading Performance</h2>
+<p>Our backtest of the XOM/CVX pair trading strategy demonstrates impressive results over the test period:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image2_equity_curve.png" class="img-fluid figure-img"></p>
+<figcaption>Equity Curve</figcaption>
+</figure>
+</div>
+<p>The equity curve above shows the growth of our initial $10,000 capital over the testing period. The steady upward trend demonstrates the consistent profitability of the strategy, reaching over $13,600 by the end of the period.</p>
+<section id="key-performance-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="key-performance-metrics">Key Performance Metrics</h3>
+</section>
+<div class="columns">
+<div class="column" style="width:48%;">
+<section id="profitability" class="level3 card bg-success text-white p-3 mb-3">
+<h3 class="anchored" data-anchor-id="profitability">Profitability</h3>
+<ul>
+<li><strong>Total Profit</strong>: $1,665.63</li>
+<li><strong>Average Profit per Trade</strong>: $41.64</li>
+<li><strong>Profit Factor</strong>: 1.93</li>
+</ul>
+</section>
+<section id="trade-statistics" class="level3 card bg-info text-white p-3 mb-3">
+<h3 class="anchored" data-anchor-id="trade-statistics">Trade Statistics</h3>
+<ul>
+<li><strong>Win Rate</strong>: 77.50%</li>
+<li><strong>Average Win</strong>: $111.25</li>
+<li><strong>Average Loss</strong>: -$198.13</li>
+<li><strong>Average Holding Period</strong>: 11.75 days</li>
+</ul>
+</section>
+</div><div class="column" style="width:4%;">
 
-</div><div class="column p-3 border rounded" style="width:47%;">
-<section id="performance-highlights" class="level3">
-<h3 class="anchored" data-anchor-id="performance-highlights">Performance Highlights</h3>
-<div class="card text-white bg-success mb-3">
-<div class="card-header">
-<p>Annual Returns (Net of Fees)</p>
-</div>
-<section id="section" class="level4 card-body">
-<h4 class="anchored" data-anchor-id="section">16.8%</h4>
-<p>Average annual return over the past 3 years</p>
+</div><div class="column" style="width:48%;">
+<section id="risk-metrics" class="level3 card bg-warning text-white p-3 mb-3">
+<h3 class="anchored" data-anchor-id="risk-metrics">Risk Metrics</h3>
+<ul>
+<li><strong>Maximum Drawdown</strong>: -13.38%</li>
+<li><strong>Sharpe Ratio</strong>: 0.79</li>
+<li><strong>Sortino Ratio</strong>: 0.90</li>
+</ul>
 </section>
-</div>
-<div class="card text-white bg-info mb-3">
-<div class="card-header">
-<p>Risk-Adjusted Performance</p>
-</div>
-<section id="sharpe-ratio-1.89" class="level4 card-body">
-<h4 class="anchored" data-anchor-id="sharpe-ratio-1.89">Sharpe Ratio: 1.89</h4>
-<p>Market Correlation: 0.12</p>
-</section>
-</div>
+<section id="overall-result" class="level3 card bg-primary text-white p-3 mb-3">
+<h3 class="anchored" data-anchor-id="overall-result">Overall Result</h3>
+<ul>
+<li><strong>Initial Capital</strong>: $10,000</li>
+<li><strong>Final Equity</strong>: $13,632.27</li>
+<li><strong>Return</strong>: 36.32%</li>
+</ul>
 </section>
 </div>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image2_drawdown.png" class="img-fluid figure-img"></p>
+<figcaption>Drawdown Analysis</figcaption>
+</figure>
+</div>
+<p>The drawdown chart above shows the percentage decline from peak equity values throughout the testing period. The maximum drawdown of 13.38% is moderate and reflects the strategy’s effective risk management, especially considering the volatile nature of energy stocks.</p>
+<section id="trading-signals-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="trading-signals-visualization">Trading Signals Visualization</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image2_zscore_positions.png" class="img-fluid figure-img"></p>
+<figcaption>Z-Score and Trading Positions</figcaption>
+</figure>
+</div>
+<p>The chart above displays our Z-score with actual trading positions marked: green triangles for long positions (long XOM, short CVX) and red triangles for short positions (short XOM, long CVX). The vertical dotted lines indicate trade entry and exit points, demonstrating how the strategy captures mean-reverting moves.</p>
 </section>
-<section id="the-pairs-trading-process" class="level2 mt-5">
-<h2 class="mt-5 anchored" data-anchor-id="the-pairs-trading-process">The Pairs Trading Process</h2>
-<div class="mb-4 callout callout-style-default callout-tip callout-titled">
+<section id="strategy-insights" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-insights">Strategy Insights</h3>
+<p>Several key observations emerge from our trading results:</p>
+<ol type="1">
+<li><p><strong>High Win Rate</strong>: The 77.50% win rate confirms the strong mean-reversion tendency between XOM and CVX, validating our statistical approach.</p></li>
+<li><p><strong>Asymmetric Risk-Reward</strong>: While average losses (-$198.13) are larger than average wins ($111.25), the high win rate more than compensates, resulting in a strong profit factor of 1.93.</p></li>
+<li><p><strong>Reasonable Drawdowns</strong>: The maximum drawdown of 13.38% is well within acceptable limits for a market-neutral strategy, indicating effective risk management.</p></li>
+<li><p><strong>Efficient Holding Period</strong>: Despite the relatively long half-life estimate (42.41 days), actual trades averaged just 11.75 days, suggesting that mean reversion often occurs faster than the statistical estimate.</p></li>
+<li><p><strong>Risk-Adjusted Performance</strong>: The Sharpe ratio (0.79) and particularly the Sortino ratio (0.90) demonstrate good risk-adjusted returns, with especially strong performance during downside market moves.</p></li>
+</ol>
+</section>
+</section>
+<section id="challenges-and-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="challenges-and-considerations">Challenges and Considerations</h2>
+<p>While the overall performance is strong, several factors warrant attention:</p>
+<ol type="1">
+<li><p><strong>Correlation Stability</strong>: The negative stability score (-21.716) indicates significant variations in the correlation between XOM and CVX over time, which could introduce periods of strategy underperformance.</p></li>
+<li><p><strong>Long Half-Life</strong>: The relatively long statistical half-life (42.41 days) suggests that some divergences might persist for extended periods, requiring patience and strong risk management.</p></li>
+<li><p><strong>VIX Adjustment</strong>: The strategy was implemented without VIX-based volatility adjustments. Incorporating market volatility indicators could potentially enhance performance by adjusting position sizing during high-volatility periods.</p></li>
+<li><p><strong>Market Regime Sensitivity</strong>: Energy stocks can be subject to distinct market regimes (contango vs.&nbsp;backwardation in oil futures, for example) which may temporarily affect the pair relationship.</p></li>
+</ol>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The XOM/CVX pair demonstrates strong characteristics for statistical arbitrage trading, with solid statistical validation and impressive backtest performance. The high win rate, favorable profit factor, and moderate drawdowns all suggest this pair offers a compelling opportunity for market-neutral trading.</p>
+<p>Despite some concerns regarding correlation stability and the relatively long half-life, the actual trading results show that the strategy effectively captures profits from temporary price divergences while maintaining low correlation to broader market movements.</p>
+<p>Based on these results, the XOM/CVX pair represents a prime example of statistical arbitrage potential in the energy sector, offering both strong returns and diversification benefits within a broader investment portfolio.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Our Systematic Approach
+Implementation Recommendation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Following a structured, data-driven methodology ensures consistency and removes emotional bias from trading decisions.</p>
-</div>
-</div>
-<div class="process-flow p-4 bg-dark rounded">
-<section id="identify-pairs" class="level3 process-step mb-4 p-3 border border-primary rounded">
-<h3 class="anchored" data-anchor-id="identify-pairs">1. Identify Pairs</h3>
-<ul>
-<li>Industry competitors (e.g., XOM/CVX in energy, KO/PEP in beverages)</li>
-<li>Companies with shared supply chains or market exposures</li>
-<li>Securities tracking similar underlying assets (ETF pairs)</li>
-<li>Assets with clear economic linkages (gold miners and gold prices)</li>
-</ul>
-</section>
-<section id="measure-correlation" class="level3 process-step mb-4 p-3 border border-primary rounded">
-<h3 class="anchored" data-anchor-id="measure-correlation">2. Measure Correlation</h3>
-<ul>
-<li>Calculate Pearson correlation coefficients (target &gt; 0.8)</li>
-<li>Analyze rolling correlation for stability over time</li>
-<li>Test correlation across multiple market conditions</li>
-<li>Examine behavior during market stress periods</li>
-</ul>
-</section>
-<section id="test-cointegration" class="level3 process-step mb-4 p-3 border border-primary rounded">
-<h3 class="anchored" data-anchor-id="test-cointegration">3. Test Cointegration</h3>
-<ul>
-<li>Augmented Dickey-Fuller (ADF) test for spread stationarity</li>
-<li>Engle-Granger test for cointegrating relationship</li>
-<li>Johansen test for additional validation</li>
-<li>Half-life calculation to estimate mean reversion timeframe</li>
-</ul>
-</section>
-<section id="define-trading-rules" class="level3 process-step mb-4 p-3 border border-primary rounded">
-<h3 class="anchored" data-anchor-id="define-trading-rules">4. Define Trading Rules</h3>
-<ul>
-<li>Entry thresholds at 2 standard deviations from mean</li>
-<li>Exit signals calibrated to historical reversion patterns</li>
-<li>Position sizing based on volatility and confidence</li>
-<li>Maximum holding periods aligned with half-life estimates</li>
-</ul>
-</section>
-<section id="execute-trades" class="level3 process-step mb-4 p-3 border border-primary rounded">
-<h3 class="anchored" data-anchor-id="execute-trades">5. Execute Trades</h3>
-<ul>
-<li>Long position in underperforming asset</li>
-<li>Short position in outperforming asset</li>
-<li>Hedged ratio for dollar neutrality</li>
-<li>Execution timing optimized for minimal market impact</li>
-</ul>
-</section>
-<section id="close-position" class="level3 process-step mb-4 p-3 border border-primary rounded">
-<h3 class="anchored" data-anchor-id="close-position">6. Close Position</h3>
-<ul>
-<li>Primary exit at mean reversion point</li>
-<li>Secondary exits based on time or stop-loss triggers</li>
-<li>Position unwinding to minimize trading costs</li>
-<li>Performance analysis for strategy refinement</li>
-</ul>
-</section>
-</div>
-</section>
-<section id="key-advantages" class="level2 mt-5">
-<h2 class="mt-5 anchored" data-anchor-id="key-advantages">Key Advantages</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<div class="card bg-dark mb-4">
-<section id="market-neutrality" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="market-neutrality">Market Neutrality</h3>
-<p>Our pairs trading approach creates positions that are largely insulated from broader market movements:</p>
-<ul>
-<li>Balanced long/short exposure</li>
-<li>Low correlation to major indices (0.12 to S&amp;P 500)</li>
-<li>Positive returns in both bull and bear markets</li>
-<li>Protection against market-wide shocks</li>
-</ul>
-</section>
-</div>
-<div class="card bg-dark mb-4">
-<section id="statistical-edge" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="statistical-edge">Statistical Edge</h3>
-<p>Every trade is based on mathematically validated relationships:</p>
-<ul>
-<li>Rigorous cointegration testing methodology</li>
-<li>Objective, rules-based entry and exit criteria</li>
-<li>Probability-driven position sizing</li>
-<li>Continuous statistical monitoring of active positions</li>
-</ul>
-</section>
-</div>
-</div><div class="column" style="width:4%;">
-
-</div><div class="column" style="width:48%;">
-<div class="card bg-dark mb-4">
-<section id="diversification-benefits" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="diversification-benefits">Diversification Benefits</h3>
-<p>Pairs trading provides genuine diversification in an investment portfolio:</p>
-<ul>
-<li>Performance independent of market direction</li>
-<li>Distinct return pattern from traditional strategies</li>
-<li>Complementary to long-only portfolios</li>
-<li>Particularly valuable during market downturns</li>
-</ul>
-</section>
-</div>
-<div class="card bg-dark mb-4">
-<section id="risk-management-focus" class="level3 card-body">
-<h3 class="anchored" data-anchor-id="risk-management-focus">Risk Management Focus</h3>
-<p>Comprehensive risk controls protect capital:</p>
-<ul>
-<li>Position-specific stop-loss levels</li>
-<li>Maximum exposure limits per pair and sector</li>
-<li>Volatility-adjusted position sizing</li>
-<li>Predefined maximum drawdown thresholds</li>
-</ul>
-</section>
-</div>
-</div>
-</div>
-</section>
-<section id="case-study-xomcvx-pair" class="level2 mt-5">
-<h2 class="mt-5 anchored" data-anchor-id="case-study-xomcvx-pair">Case Study: XOM/CVX Pair</h2>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Trading Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In June 2024, our system identified a significant divergence between Exxon Mobil (XOM) and Chevron (CVX):</p>
-<ul>
-<li><strong>Entry Condition</strong>: Spread Z-score reached +2.4 (XOM outperforming CVX)</li>
-<li><strong>Position</strong>: Short XOM, Long CVX with $100,000 notional exposure</li>
-<li><strong>Spread Evolution</strong>: Z-score normalized from +2.4 to +0.3 over 9 trading days</li>
-<li><strong>Outcome</strong>: 3.8% return on deployed capital in just over a week</li>
-<li><strong>Risk Control</strong>: Maximum drawdown during trade was only 0.7%</li>
-</ul>
+<p>For optimal implementation, we recommend:</p>
+<ol type="1">
+<li>Using the established hedge ratio of 0.1816 to maintain market neutrality</li>
+<li>Monitoring correlation stability and adjusting position sizing accordingly</li>
+<li>Implementing a trailing stop-loss strategy during periods of extended divergence</li>
+<li>Considering additional filters based on energy sector fundamentals</li>
+</ol>
 </div>
 </div>
 

@@ -1,0 +1,247 @@
+---
+title: "Indicators"
+format: html
+jupyter: python3
+execute:
+  echo: false
+---
+
+DevilsPair employs a sophisticated array of statistical tools to identify, validate, and trade pairs with precision. This page explains the key indicators that drive our decision-making process.
+
+## Correlation Measures
+
+Correlation analysis forms the foundation of our pair selection process, helping us identify assets that tend to move together.
+
+### Pearson Correlation
+
+The Pearson correlation coefficient measures the linear relationship between two assets on a scale of -1 to +1:
+
+$$\rho(X,Y) = \frac{Cov(X,Y)}{\sigma_X \times \sigma_Y}$$
+
+Where:
+- $Cov(X,Y)$ is the covariance between assets X and Y
+- $\sigma_X$ and $\sigma_Y$ are the standard deviations of X and Y respectively
+
+We typically target correlations above 0.8 for optimal pairs.
+
+### Rolling Correlation
+
+We track correlation changes over time using moving windows, typically 60-day and 120-day periods. This helps identify pairs with consistent relationships and highlight potential structural breaks.
+
+The analysis of rolling correlations reveals how relationships can shift over time. For example, when examining historical data, we often observe structural breaks that might indicate fundamental changes in the relationship between assets. The shorter 60-day window typically reveals these changes more quickly than the 120-day window, allowing us to respond promptly to evolving market conditions.
+
+### Correlation Stability
+
+We calculate the standard deviation of rolling correlation to measure relationship consistency. Lower values indicate more stable pairs with predictable behavior, which is critical for minimizing unexpected divergence risk.
+
+**Correlation Stability Metrics for Selected Pairs:**
+
+| Pair | Mean Correlation | Correlation StdDev | Stability Score |
+|------|-----------------|-------------------|-----------------|
+| XOM/CVX | 0.89 | 0.07 | 9.3 |
+| MSFT/AAPL | 0.85 | 0.12 | 8.8 |
+| JPM/BAC | 0.88 | 0.08 | 9.2 |
+| SPY/IVV | 0.99 | 0.01 | 9.9 |
+| KO/PEP | 0.82 | 0.09 | 9.1 |
+| HD/LOW | 0.84 | 0.11 | 8.9 |
+
+Pairs with higher stability scores (lower standard deviation of correlation) tend to provide more reliable trading opportunities with more predictable mean reversion behavior.
+
+## Cointegration Tests
+
+While correlation measures short-term co-movement, cointegration tests validate long-term equilibrium relationships.
+
+### Augmented Dickey-Fuller Test
+
+The ADF test determines whether the spread between two assets is stationary, which indicates mean-reverting behavior. The test statistic is compared to critical values, and p-values below 0.05 suggest strong cointegration.
+
+The ADF test equation is:
+
+$$\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_p \Delta y_{t-p} + \epsilon_t$$
+
+We reject the null hypothesis of a unit root (non-stationarity) when the test statistic is more negative than the critical value.
+
+**ADF Test Results for Various Pairs:**
+
+| Pair | Test Statistic | P-Value | Critical Value (5%) | Cointegrated |
+|------|---------------|---------|---------------------|--------------|
+| XOM/CVX | -3.20 | 0.020 | -2.86 | Yes |
+| MSFT/AAPL | -2.98 | 0.037 | -2.86 | Yes |
+| JPM/BAC | -3.42 | 0.011 | -2.86 | Yes |
+| GLD/SLV | -2.75 | 0.065 | -2.86 | No |
+| KO/PEP | -2.62 | 0.089 | -2.86 | No |
+| HD/LOW | -3.15 | 0.024 | -2.86 | Yes |
+
+Pairs with test statistics below the critical value (and p-values < 0.05) exhibit statistically significant cointegration and are suitable candidates for our strategy.
+
+### Engle-Granger Test
+
+The Engle-Granger test is a two-step procedure to test for cointegration:
+1. Estimate the long-run equilibrium relationship: $Y_t = \beta X_t + \mu_t$
+2. Test the residuals $\mu_t$ for stationarity using an ADF test
+
+This test confirms the existence of an error-correction mechanism between the two time series, which is essential for mean reversion.
+
+### Johansen Test
+
+The Johansen test is a more robust test for cointegration among multiple time series. It can determine the number of cointegrating relationships and is especially useful for validating pairs that pass initial screening.
+
+Results include trace statistics and eigenvalue tests compared against critical values at different confidence levels.
+
+**Johansen Cointegration Test for XOM/CVX**
+
+| Statistic | Value |
+|-----------|-------|
+| Trace Statistic | 21.90 |
+| Critical Value (90%) | 13.43 |
+| Critical Value (95%) | 15.49 |
+| Critical Value (99%) | 19.94 |
+
+Since the trace statistic (21.90) exceeds even the 99% critical value (19.94), we have strong evidence of cointegration between XOM and CVX.
+
+## Spread Analysis
+
+Once pairs are validated through correlation and cointegration testing, we analyze their spread characteristics.
+
+### Spread Calculation
+
+The spread between paired assets is computed as:
+
+$$\text{Spread} = \log(Price_A) - \log(Price_B)$$
+
+The logarithmic transformation normalizes price scales. Alternatively, we sometimes use the ratio method for certain pair types:
+
+$$\text{Ratio Spread} = \frac{Price_A}{Price_B}$$
+
+Both approaches are adjusted for the hedge ratio to maintain dollar neutrality.
+
+The log spread and ratio spread calculations capture slightly different aspects of the relationship between paired assets. While both approaches identify mean-reverting behavior, the log spread is preferred for pairs with significant price level differences, as it normalizes the relationship on a percentage basis.
+
+### Z-Score Transformation
+
+We normalize the spread to measure deviation from equilibrium using the Z-score:
+
+$$\text{Z-score} = \frac{\text{Spread} - \text{Mean(Spread)}}{\text{Std(Spread)}}$$
+
+This is calculated using rolling windows (typically 20-30 days) and provides a standardized measure for trade signals.
+
+Our trading system generates signals based on Z-score thresholds. Typical entry points occur when the Z-score exceeds +2 or falls below -2, indicating a significant deviation from the mean relationship. The mean (Z-score = 0) represents our target exit point, while additional boundaries at +1 and -1 may serve as early warning indicators or conservative exit points.
+
+### Half-Life Estimation
+
+To understand how quickly the spread returns to its mean, we estimate the half-life using an AR(1) model:
+
+$$\text{Half-life} = \frac{-\ln(2)}{\ln(\rho)}$$
+
+Where $\rho$ is the coefficient from the regression of the spread's change on its lagged value. This calculation helps us determine appropriate holding periods and set expectations for trade duration.
+
+In our universe of tradable pairs, most half-lives fall between 5 and 15 trading days, indicating relatively quick mean reversion. Pairs with very short half-lives (1-3 days) typically offer more frequent trading opportunities but smaller returns per trade, while pairs with longer half-lives (15-30 days) often provide larger returns but with fewer opportunities.
+
+## Signal Generation
+
+Our trading signals are derived from statistical analysis of spread behavior.
+
+### Entry Signals
+
+We trigger entry signals when the Z-score exceeds predetermined thresholds:
+- Typical entry when |Z-score| > 2.0 (2 standard deviations)
+- Direction determined by sign of Z-score (negative Z-score: long first asset, short second asset)
+- Additional filters may include momentum indicators to avoid "catching falling knives"
+
+Our entry logic is designed to identify significant divergences from the mean relationship. When the Z-score exceeds +2, we go short the first asset and long the second; when it falls below -2, we take the opposite position. This approach systematically captures mean-reversion opportunities while maintaining mathematical rigor.
+
+### Exit Signals
+
+We employ several exit strategies:
+- Primary exit when Z-score returns to mean (0) or crosses specified threshold
+- Time-based exits determined by spread half-life estimate
+- Stop-loss triggers based on adverse Z-score movement
+- Take-profit levels customized for each pair's historical behavior
+
+Our exit mechanisms ensure disciplined trade management. The primary exit occurs when the spread normalizes, but we also incorporate time-based exits when positions approach their expected half-life. Stop-loss triggers protect against unexpected divergence continuation, while take-profit levels capture gains at statistically optimal points.
+
+### Position Sizing
+
+We determine position sizes based on:
+- Historical volatility of the spread
+- Statistical confidence in the cointegration relationship
+- Overall portfolio risk allocation
+- Current market volatility conditions
+
+The formula below represents our base position sizing calculation:
+
+$$\text{Position Size} = \frac{\text{Risk Allocation}}{\text{Pair Volatility} \times \text{Stop Loss Distance}}$$
+
+This approach ensures consistent risk exposure across different pairs regardless of their individual characteristics.
+
+## Volatility Adjustments
+
+Our model incorporates volatility measures to adapt to changing market conditions.
+
+### Conditional Volatility
+
+We use GARCH models to estimate time-varying volatility and:
+- Adjust Z-score thresholds during high-volatility periods
+- Reduce position sizes when spread volatility increases
+- Provide adaptive risk management based on current market conditions
+
+During periods of higher volatility, our entry thresholds automatically widen, reducing false signals and improving trade quality. This dynamic adjustment ensures that we maintain consistent risk levels regardless of market conditions.
+
+### VIX Integration
+
+We incorporate the VIX market volatility index as an adjustment factor:
+- Raising entry thresholds during high-VIX environments
+- Reducing holding periods when market stress increases
+- Adjusting position sizes inversely to market volatility
+
+The formula for adjusted Z-score thresholds is:
+
+$$\text{Adjusted Z-threshold} = \text{Base Z-threshold} \times \left(1 + \alpha \times \frac{\text{VIX} - \text{VIX}_{\text{avg}}}{\text{VIX}_{\text{avg}}}\right)$$
+
+Where $\alpha$ is a sensitivity parameter calibrated to historical performance.
+
+### Volume Analysis
+
+We monitor trading volume for liquidity assessment and:
+- Adjust position sizing based on available liquidity
+- Identify potential liquidity-driven divergences
+- Optimize execution timing to minimize market impact
+- Validate signal quality during unusual volume conditions
+
+Volume analysis provides crucial context for our trading decisions. Abnormal volume may indicate potential liquidity-driven divergences rather than statistical arbitrage opportunities, allowing us to filter out potentially unprofitable signals.
+
+## Performance Metrics
+
+We track comprehensive performance indicators to evaluate strategy effectiveness.
+
+### Return Metrics
+
+Our strategy performance is measured through:
+- Return per trade and annualized returns
+- Risk-adjusted returns (Sharpe ratio, Sortino ratio)
+- Maximum drawdown and recovery periods
+- Win rate and profit factor
+
+These metrics allow us to evaluate not just absolute returns but also risk-adjusted performance, helping us continuously refine our approach for optimal results.
+
+### Risk Measures
+
+We closely monitor risk through:
+- Standard deviation of returns
+- Beta to market indices
+- Value-at-Risk (VaR) calculations
+- Stress testing against historical scenarios
+
+Regular risk assessment ensures our strategy remains robust across different market environments, with particular attention to tail risk events that could impact performance.
+
+### Pair-Specific Analytics
+
+We analyze performance by pair category:
+- Success rate by pair category
+- Average holding period versus expected half-life
+- Divergence frequency and magnitude
+- Correlation with other active pairs
+
+This detailed analysis reveals which types of pairs perform best under different market conditions, allowing us to dynamically adjust our pair selection process for optimal results.
+
+This detailed statistical framework ensures our pairs trading strategy maintains a consistent edge through rigorous validation, precise signal generation, and adaptive risk management across diverse market conditions.

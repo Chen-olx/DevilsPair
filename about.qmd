@@ -1,5 +1,70 @@
 ---
 title: "About"
+format: html
+jupyter: python3
+execute:
+  echo: false
 ---
 
-About this site
+## Our Team
+
+At DevilsPair, we bring together expertise in quantitative finance, statistical analysis, and algorithmic trading to create a sophisticated yet practical approach to pairs trading.
+
+:::: {.columns}
+
+::: {.column width="30%"}
+::: {.card}
+::: {.card-body}
+### Cartier Huang
+:::
+:::
+:::
+
+::: {.column width="30%"}
+::: {.card}
+::: {.card-body}
+### Gloria Li
+:::
+:::
+:::
+
+::: {.column width="30%"}
+::: {.card}
+::: {.card-body}
+### Chen Xu
+:::
+:::
+:::
+
+::::
+
+## Strategy Development {.mt-5}
+
+Our pairs trading approach was developed through extensive research into statistical arbitrage techniques used by institutional investors. Key milestones in our strategy evolution include:
+
+:::: {.timeline}
+
+::: {.timeline-item}
+### Initial Research
+Comprehensive exploration of cointegration modeling across various asset classes and markets
+:::
+
+::: {.timeline-item}
+### Filtering Criteria Development
+Creation of proprietary screening methods to identify highest-probability pairs with optimal mean-reversion characteristics
+:::
+
+::: {.timeline-item}
+### Risk Management Integration
+Implementation of dynamic risk protocols that adapt to changing market conditions and volatility regimes
+:::
+
+::: {.timeline-item}
+### Execution Algorithm Design
+Development of custom trading algorithms to optimize entry and exit timing while minimizing market impact
+:::
+
+::: {.timeline-item}
+### Performance Analytics
+Creation of comprehensive performance measurement framework for continuous strategy improvement
+:::

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Indicators – DevilsPair</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-9a023c9ade86a60361e96e3e3f11bc54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5cf51b1d6b2ec38982e478b9fd388514.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DevilsPair</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./indicators.html" aria-current="page"> 
+<span class="menu-text">Indicators</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./sample pairs.html"> 
+<span class="menu-text">Sample Pairs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On This Page</h2>
+   
+  <ul>
+  <li><a href="#correlation-measures" id="toc-correlation-measures" class="nav-link active" data-scroll-target="#correlation-measures">Correlation Measures</a>
+  <ul class="collapse">
+  <li><a href="#pearson-correlation" id="toc-pearson-correlation" class="nav-link" data-scroll-target="#pearson-correlation">Pearson Correlation</a></li>
+  <li><a href="#rolling-correlation" id="toc-rolling-correlation" class="nav-link" data-scroll-target="#rolling-correlation">Rolling Correlation</a></li>
+  <li><a href="#correlation-stability" id="toc-correlation-stability" class="nav-link" data-scroll-target="#correlation-stability">Correlation Stability</a></li>
+  </ul></li>
+  <li><a href="#cointegration-tests" id="toc-cointegration-tests" class="nav-link" data-scroll-target="#cointegration-tests">Cointegration Tests</a>
+  <ul class="collapse">
+  <li><a href="#augmented-dickey-fuller-test" id="toc-augmented-dickey-fuller-test" class="nav-link" data-scroll-target="#augmented-dickey-fuller-test">Augmented Dickey-Fuller Test</a></li>
+  <li><a href="#engle-granger-test" id="toc-engle-granger-test" class="nav-link" data-scroll-target="#engle-granger-test">Engle-Granger Test</a></li>
+  <li><a href="#johansen-test" id="toc-johansen-test" class="nav-link" data-scroll-target="#johansen-test">Johansen Test</a></li>
+  </ul></li>
+  <li><a href="#spread-analysis" id="toc-spread-analysis" class="nav-link" data-scroll-target="#spread-analysis">Spread Analysis</a>
+  <ul class="collapse">
+  <li><a href="#spread-calculation" id="toc-spread-calculation" class="nav-link" data-scroll-target="#spread-calculation">Spread Calculation</a></li>
+  <li><a href="#z-score-transformation" id="toc-z-score-transformation" class="nav-link" data-scroll-target="#z-score-transformation">Z-Score Transformation</a></li>
+  <li><a href="#half-life-estimation" id="toc-half-life-estimation" class="nav-link" data-scroll-target="#half-life-estimation">Half-Life Estimation</a></li>
+  </ul></li>
+  <li><a href="#signal-generation" id="toc-signal-generation" class="nav-link" data-scroll-target="#signal-generation">Signal Generation</a>
+  <ul class="collapse">
+  <li><a href="#entry-signals" id="toc-entry-signals" class="nav-link" data-scroll-target="#entry-signals">Entry Signals</a></li>
+  <li><a href="#exit-signals" id="toc-exit-signals" class="nav-link" data-scroll-target="#exit-signals">Exit Signals</a></li>
+  <li><a href="#position-sizing" id="toc-position-sizing" class="nav-link" data-scroll-target="#position-sizing">Position Sizing</a></li>
+  </ul></li>
+  <li><a href="#volatility-adjustments" id="toc-volatility-adjustments" class="nav-link" data-scroll-target="#volatility-adjustments">Volatility Adjustments</a>
+  <ul class="collapse">
+  <li><a href="#conditional-volatility" id="toc-conditional-volatility" class="nav-link" data-scroll-target="#conditional-volatility">Conditional Volatility</a></li>
+  <li><a href="#vix-integration" id="toc-vix-integration" class="nav-link" data-scroll-target="#vix-integration">VIX Integration</a></li>
+  <li><a href="#volume-analysis" id="toc-volume-analysis" class="nav-link" data-scroll-target="#volume-analysis">Volume Analysis</a></li>
+  </ul></li>
+  <li><a href="#performance-metrics" id="toc-performance-metrics" class="nav-link" data-scroll-target="#performance-metrics">Performance Metrics</a>
+  <ul class="collapse">
+  <li><a href="#return-metrics" id="toc-return-metrics" class="nav-link" data-scroll-target="#return-metrics">Return Metrics</a></li>
+  <li><a href="#risk-measures" id="toc-risk-measures" class="nav-link" data-scroll-target="#risk-measures">Risk Measures</a></li>
+  <li><a href="#pair-specific-analytics" id="toc-pair-specific-analytics" class="nav-link" data-scroll-target="#pair-specific-analytics">Pair-Specific Analytics</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Indicators</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>DevilsPair employs a sophisticated array of statistical tools to identify, validate, and trade pairs with precision. This page explains the key indicators that drive our decision-making process.</p>
+<section id="correlation-measures" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-measures">Correlation Measures</h2>
+<p>Correlation analysis forms the foundation of our pair selection process, helping us identify assets that tend to move together.</p>
+<section id="pearson-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="pearson-correlation">Pearson Correlation</h3>
+<p>The Pearson correlation coefficient measures the linear relationship between two assets on a scale of -1 to +1:</p>
+<p><span class="math display">\rho(X,Y) = \frac{Cov(X,Y)}{\sigma_X \times \sigma_Y}</span></p>
+<p>Where: - <span class="math inline">Cov(X,Y)</span> is the covariance between assets X and Y - <span class="math inline">\sigma_X</span> and <span class="math inline">\sigma_Y</span> are the standard deviations of X and Y respectively</p>
+<p>We typically target correlations above 0.8 for optimal pairs.</p>
+</section>
+<section id="rolling-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="rolling-correlation">Rolling Correlation</h3>
+<p>We track correlation changes over time using moving windows, typically 60-day and 120-day periods. This helps identify pairs with consistent relationships and highlight potential structural breaks.</p>
+<p>The analysis of rolling correlations reveals how relationships can shift over time. For example, when examining historical data, we often observe structural breaks that might indicate fundamental changes in the relationship between assets. The shorter 60-day window typically reveals these changes more quickly than the 120-day window, allowing us to respond promptly to evolving market conditions.</p>
+</section>
+<section id="correlation-stability" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-stability">Correlation Stability</h3>
+<p>We calculate the standard deviation of rolling correlation to measure relationship consistency. Lower values indicate more stable pairs with predictable behavior, which is critical for minimizing unexpected divergence risk.</p>
+<p><strong>Correlation Stability Metrics for Selected Pairs:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pair</th>
+<th>Mean Correlation</th>
+<th>Correlation StdDev</th>
+<th>Stability Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>XOM/CVX</td>
+<td>0.89</td>
+<td>0.07</td>
+<td>9.3</td>
+</tr>
+<tr class="even">
+<td>MSFT/AAPL</td>
+<td>0.85</td>
+<td>0.12</td>
+<td>8.8</td>
+</tr>
+<tr class="odd">
+<td>JPM/BAC</td>
+<td>0.88</td>
+<td>0.08</td>
+<td>9.2</td>
+</tr>
+<tr class="even">
+<td>SPY/IVV</td>
+<td>0.99</td>
+<td>0.01</td>
+<td>9.9</td>
+</tr>
+<tr class="odd">
+<td>KO/PEP</td>
+<td>0.82</td>
+<td>0.09</td>
+<td>9.1</td>
+</tr>
+<tr class="even">
+<td>HD/LOW</td>
+<td>0.84</td>
+<td>0.11</td>
+<td>8.9</td>
+</tr>
+</tbody>
+</table>
+<p>Pairs with higher stability scores (lower standard deviation of correlation) tend to provide more reliable trading opportunities with more predictable mean reversion behavior.</p>
+</section>
+</section>
+<section id="cointegration-tests" class="level2">
+<h2 class="anchored" data-anchor-id="cointegration-tests">Cointegration Tests</h2>
+<p>While correlation measures short-term co-movement, cointegration tests validate long-term equilibrium relationships.</p>
+<section id="augmented-dickey-fuller-test" class="level3">
+<h3 class="anchored" data-anchor-id="augmented-dickey-fuller-test">Augmented Dickey-Fuller Test</h3>
+<p>The ADF test determines whether the spread between two assets is stationary, which indicates mean-reverting behavior. The test statistic is compared to critical values, and p-values below 0.05 suggest strong cointegration.</p>
+<p>The ADF test equation is:</p>
+<p><span class="math display">\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_p \Delta y_{t-p} + \epsilon_t</span></p>
+<p>We reject the null hypothesis of a unit root (non-stationarity) when the test statistic is more negative than the critical value.</p>
+<p><strong>ADF Test Results for Various Pairs:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pair</th>
+<th>Test Statistic</th>
+<th>P-Value</th>
+<th>Critical Value (5%)</th>
+<th>Cointegrated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>XOM/CVX</td>
+<td>-3.20</td>
+<td>0.020</td>
+<td>-2.86</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>MSFT/AAPL</td>
+<td>-2.98</td>
+<td>0.037</td>
+<td>-2.86</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>JPM/BAC</td>
+<td>-3.42</td>
+<td>0.011</td>
+<td>-2.86</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>GLD/SLV</td>
+<td>-2.75</td>
+<td>0.065</td>
+<td>-2.86</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>KO/PEP</td>
+<td>-2.62</td>
+<td>0.089</td>
+<td>-2.86</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>HD/LOW</td>
+<td>-3.15</td>
+<td>0.024</td>
+<td>-2.86</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Pairs with test statistics below the critical value (and p-values &lt; 0.05) exhibit statistically significant cointegration and are suitable candidates for our strategy.</p>
+</section>
+<section id="engle-granger-test" class="level3">
+<h3 class="anchored" data-anchor-id="engle-granger-test">Engle-Granger Test</h3>
+<p>The Engle-Granger test is a two-step procedure to test for cointegration: 1. Estimate the long-run equilibrium relationship: <span class="math inline">Y_t = \beta X_t + \mu_t</span> 2. Test the residuals <span class="math inline">\mu_t</span> for stationarity using an ADF test</p>
+<p>This test confirms the existence of an error-correction mechanism between the two time series, which is essential for mean reversion.</p>
+</section>
+<section id="johansen-test" class="level3">
+<h3 class="anchored" data-anchor-id="johansen-test">Johansen Test</h3>
+<p>The Johansen test is a more robust test for cointegration among multiple time series. It can determine the number of cointegrating relationships and is especially useful for validating pairs that pass initial screening.</p>
+<p>Results include trace statistics and eigenvalue tests compared against critical values at different confidence levels.</p>
+<p><strong>Johansen Cointegration Test for XOM/CVX</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Statistic</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Trace Statistic</td>
+<td>21.90</td>
+</tr>
+<tr class="even">
+<td>Critical Value (90%)</td>
+<td>13.43</td>
+</tr>
+<tr class="odd">
+<td>Critical Value (95%)</td>
+<td>15.49</td>
+</tr>
+<tr class="even">
+<td>Critical Value (99%)</td>
+<td>19.94</td>
+</tr>
+</tbody>
+</table>
+<p>Since the trace statistic (21.90) exceeds even the 99% critical value (19.94), we have strong evidence of cointegration between XOM and CVX.</p>
+</section>
+</section>
+<section id="spread-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="spread-analysis">Spread Analysis</h2>
+<p>Once pairs are validated through correlation and cointegration testing, we analyze their spread characteristics.</p>
+<section id="spread-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="spread-calculation">Spread Calculation</h3>
+<p>The spread between paired assets is computed as:</p>
+<p><span class="math display">\text{Spread} = \log(Price_A) - \log(Price_B)</span></p>
+<p>The logarithmic transformation normalizes price scales. Alternatively, we sometimes use the ratio method for certain pair types:</p>
+<p><span class="math display">\text{Ratio Spread} = \frac{Price_A}{Price_B}</span></p>
+<p>Both approaches are adjusted for the hedge ratio to maintain dollar neutrality.</p>
+<p>The log spread and ratio spread calculations capture slightly different aspects of the relationship between paired assets. While both approaches identify mean-reverting behavior, the log spread is preferred for pairs with significant price level differences, as it normalizes the relationship on a percentage basis.</p>
+</section>
+<section id="z-score-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="z-score-transformation">Z-Score Transformation</h3>
+<p>We normalize the spread to measure deviation from equilibrium using the Z-score:</p>
+<p><span class="math display">\text{Z-score} = \frac{\text{Spread} - \text{Mean(Spread)}}{\text{Std(Spread)}}</span></p>
+<p>This is calculated using rolling windows (typically 20-30 days) and provides a standardized measure for trade signals.</p>
+<p>Our trading system generates signals based on Z-score thresholds. Typical entry points occur when the Z-score exceeds +2 or falls below -2, indicating a significant deviation from the mean relationship. The mean (Z-score = 0) represents our target exit point, while additional boundaries at +1 and -1 may serve as early warning indicators or conservative exit points.</p>
+</section>
+<section id="half-life-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="half-life-estimation">Half-Life Estimation</h3>
+<p>To understand how quickly the spread returns to its mean, we estimate the half-life using an AR(1) model:</p>
+<p><span class="math display">\text{Half-life} = \frac{-\ln(2)}{\ln(\rho)}</span></p>
+<p>Where <span class="math inline">\rho</span> is the coefficient from the regression of the spread’s change on its lagged value. This calculation helps us determine appropriate holding periods and set expectations for trade duration.</p>
+<p>In our universe of tradable pairs, most half-lives fall between 5 and 15 trading days, indicating relatively quick mean reversion. Pairs with very short half-lives (1-3 days) typically offer more frequent trading opportunities but smaller returns per trade, while pairs with longer half-lives (15-30 days) often provide larger returns but with fewer opportunities.</p>
+</section>
+</section>
+<section id="signal-generation" class="level2">
+<h2 class="anchored" data-anchor-id="signal-generation">Signal Generation</h2>
+<p>Our trading signals are derived from statistical analysis of spread behavior.</p>
+<section id="entry-signals" class="level3">
+<h3 class="anchored" data-anchor-id="entry-signals">Entry Signals</h3>
+<p>We trigger entry signals when the Z-score exceeds predetermined thresholds: - Typical entry when |Z-score| &gt; 2.0 (2 standard deviations) - Direction determined by sign of Z-score (negative Z-score: long first asset, short second asset) - Additional filters may include momentum indicators to avoid “catching falling knives”</p>
+<p>Our entry logic is designed to identify significant divergences from the mean relationship. When the Z-score exceeds +2, we go short the first asset and long the second; when it falls below -2, we take the opposite position. This approach systematically captures mean-reversion opportunities while maintaining mathematical rigor.</p>
+</section>
+<section id="exit-signals" class="level3">
+<h3 class="anchored" data-anchor-id="exit-signals">Exit Signals</h3>
+<p>We employ several exit strategies: - Primary exit when Z-score returns to mean (0) or crosses specified threshold - Time-based exits determined by spread half-life estimate - Stop-loss triggers based on adverse Z-score movement - Take-profit levels customized for each pair’s historical behavior</p>
+<p>Our exit mechanisms ensure disciplined trade management. The primary exit occurs when the spread normalizes, but we also incorporate time-based exits when positions approach their expected half-life. Stop-loss triggers protect against unexpected divergence continuation, while take-profit levels capture gains at statistically optimal points.</p>
+</section>
+<section id="position-sizing" class="level3">
+<h3 class="anchored" data-anchor-id="position-sizing">Position Sizing</h3>
+<p>We determine position sizes based on: - Historical volatility of the spread - Statistical confidence in the cointegration relationship - Overall portfolio risk allocation - Current market volatility conditions</p>
+<p>The formula below represents our base position sizing calculation:</p>
+<p><span class="math display">\text{Position Size} = \frac{\text{Risk Allocation}}{\text{Pair Volatility} \times \text{Stop Loss Distance}}</span></p>
+<p>This approach ensures consistent risk exposure across different pairs regardless of their individual characteristics.</p>
+</section>
+</section>
+<section id="volatility-adjustments" class="level2">
+<h2 class="anchored" data-anchor-id="volatility-adjustments">Volatility Adjustments</h2>
+<p>Our model incorporates volatility measures to adapt to changing market conditions.</p>
+<section id="conditional-volatility" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-volatility">Conditional Volatility</h3>
+<p>We use GARCH models to estimate time-varying volatility and: - Adjust Z-score thresholds during high-volatility periods - Reduce position sizes when spread volatility increases - Provide adaptive risk management based on current market conditions</p>
+<p>During periods of higher volatility, our entry thresholds automatically widen, reducing false signals and improving trade quality. This dynamic adjustment ensures that we maintain consistent risk levels regardless of market conditions.</p>
+</section>
+<section id="vix-integration" class="level3">
+<h3 class="anchored" data-anchor-id="vix-integration">VIX Integration</h3>
+<p>We incorporate the VIX market volatility index as an adjustment factor: - Raising entry thresholds during high-VIX environments - Reducing holding periods when market stress increases - Adjusting position sizes inversely to market volatility</p>
+<p>The formula for adjusted Z-score thresholds is:</p>
+<p><span class="math display">\text{Adjusted Z-threshold} = \text{Base Z-threshold} \times \left(1 + \alpha \times \frac{\text{VIX} - \text{VIX}_{\text{avg}}}{\text{VIX}_{\text{avg}}}\right)</span></p>
+<p>Where <span class="math inline">\alpha</span> is a sensitivity parameter calibrated to historical performance.</p>
+</section>
+<section id="volume-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="volume-analysis">Volume Analysis</h3>
+<p>We monitor trading volume for liquidity assessment and: - Adjust position sizing based on available liquidity - Identify potential liquidity-driven divergences - Optimize execution timing to minimize market impact - Validate signal quality during unusual volume conditions</p>
+<p>Volume analysis provides crucial context for our trading decisions. Abnormal volume may indicate potential liquidity-driven divergences rather than statistical arbitrage opportunities, allowing us to filter out potentially unprofitable signals.</p>
+</section>
+</section>
+<section id="performance-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="performance-metrics">Performance Metrics</h2>
+<p>We track comprehensive performance indicators to evaluate strategy effectiveness.</p>
+<section id="return-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="return-metrics">Return Metrics</h3>
+<p>Our strategy performance is measured through: - Return per trade and annualized returns - Risk-adjusted returns (Sharpe ratio, Sortino ratio) - Maximum drawdown and recovery periods - Win rate and profit factor</p>
+<p>These metrics allow us to evaluate not just absolute returns but also risk-adjusted performance, helping us continuously refine our approach for optimal results.</p>
+</section>
+<section id="risk-measures" class="level3">
+<h3 class="anchored" data-anchor-id="risk-measures">Risk Measures</h3>
+<p>We closely monitor risk through: - Standard deviation of returns - Beta to market indices - Value-at-Risk (VaR) calculations - Stress testing against historical scenarios</p>
+<p>Regular risk assessment ensures our strategy remains robust across different market environments, with particular attention to tail risk events that could impact performance.</p>
+</section>
+<section id="pair-specific-analytics" class="level3">
+<h3 class="anchored" data-anchor-id="pair-specific-analytics">Pair-Specific Analytics</h3>
+<p>We analyze performance by pair category: - Success rate by pair category - Average holding period versus expected half-life - Divergence frequency and magnitude - Correlation with other active pairs</p>
+<p>This detailed analysis reveals which types of pairs perform best under different market conditions, allowing us to dynamically adjust our pair selection process for optimal results.</p>
+<p>This detailed statistical framework ensures our pairs trading strategy maintains a consistent edge through rigorous validation, precise signal generation, and adaptive risk management across diverse market conditions.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

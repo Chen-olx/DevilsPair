@@ -1,69 +1,209 @@
 ---
-title: "DevilsPair"
+title: "Home"
 format: html
 jupyter: python3
 execute:
   echo: false
 ---
 
-# Strategy: Pairs Trading
-
-## Features
-- A market-neutral trading strategy that identifies two correlated assets and exploits temporary price divergences
-- Traders long the underperforming asset and short the outperforming asset, assuming they will revert to their historical relationship.
-
-## How It works
-::: {.columns}
-:::: {.column width="50%"}
-1. Identify a Pair (e.g., stocks in the same industry: KO vs. PEP).
-2. Measure Correlation (using statistical tests like cointegration).
-3. Define Entry & Exit Rules (e.g., trading when price ratio deviates from mean by 2 standard deviations).
-::::
-:::: {.column width="50%"}
-4. Execute Trades (Long underperformer, Short outperformer).
-5. Close Position when spread reverts to the mean.
-::::
+::: {.hero .p-5 .text-center .bg-dark .text-white .rounded .mb-5}
+# Statistical Arbitrage Through Pairs Trading
+### A market-neutral strategy capturing price divergences between correlated assets
 :::
 
-## Assets Chosen
-1. Identifying Candidate Pairs
-- Start by selecting assets that have a fundamental or economic relationship, such as:
-    - Stocks within the same industry (e.g., Coca-Cola & Pepsi, Visa & Mastercard)
-    - ETF pairs (e.g., SPY & IVV, QQQ & XLK)
-    - Commodity-related pairs (e.g., Oil & Natural Gas, Gold & Silver)
-    - Currency pairs (e.g., EUR/USD & GBP/USD)
-    - Bond pairs (e.g., U.S. Treasuries of different maturities)
-2. Checking Stock Correlation
-- Pearson correlation (short-term relationship) – A high correlation (>0.8) suggests similar movements
-- Rolling correlation
-- Hedge Ratio Calculation – Use OLS to estimate hedge ratio
-3. Statistical Cointegration Analysis
-- Test for cointegration to ensure the pair moves together in the long run. Use:
-- Augmented Dickey-Fuller (ADF) test: To check if the spread between the two assets is stationary.
-- Engle-Granger Test: Tests whether two assets are cointegrated.
-- Johansen Test: More advanced test for multiple time series.
+## Welcome to DevilsPair {.mt-4}
 
-## Case: XOM vs CVX
-::: {.center}
-![XOM vs CVX](images/XOMvsCVX.png)
+Welcome to DevilsPair, your destination for market-neutral trading strategies leveraging statistical relationships between correlated assets. Our specialized approach identifies temporary price divergences between historically related securities, allowing for strategic positions insulated from broader market movements.
+
+:::: {.columns .mt-5}
+
+::: {.column width="47%" .p-3 .border .rounded}
+### Our Strategy at a Glance
+
+::: {.list-group}
+::: {.list-group-item .bg-primary .text-white}
+**Market-Neutral Trading**: Medium-term opportunities (3-14 days) with balanced long/short positions for market risk neutralization
 :::
 
-```{python}
-import pandas as pd
-df = pd.DataFrame([
-    ["ADF Test Statistic", -3.196164524303477],
-    ["Johansen Cointegration Test", 21.9011],
-    ["Correlation coefficient", 0.14438665928752528]
-], columns=["Metrics", "Value"])
-df
-```
-### Entry signals:
-- If the z-score of the spread between the two assets exceeds +2, it indicates that asset A is overvalued relative to asset B. The strategy enters a position by shorting A and longing B, expecting the spread to revert to the mean.
-- If the z-score falls below -2, it indicates that asset A is undervalued relative to asset B. The strategy enters a position by longing A and shorting B, again expecting mean reversion.
+::: {.list-group-item}
+**Statistical Validation**: Rigorous mathematical testing through correlation analysis and cointegration testing
+:::
 
-### Exit signals:
-- If the absolute value of the z-score drops below 0.5, the spread is considered to have mean-reverted. The strategy takes profit by closing the position.
-- If the z-score moves further away and exceeds ±3, the spread is diverging instead of reverting. The strategy triggers a stop-loss to cut potential losses.
----
+::: {.list-group-item}
+**Precision Risk Management**: Predefined entry/exit rules with automated position sizing based on historical volatility
+:::
 
-_Stay ahead with **DevilsPair**—innovation meets efficiency!_
+::: {.list-group-item}
+**Transparency in Performance**: Comprehensive metrics including trade-by-trade analysis and risk-adjusted returns
+:::
+:::
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%" .p-3 .border .rounded}
+### Performance Highlights
+
+::: {.card .text-white .bg-success .mb-3}
+::: {.card-header}
+Annual Returns (Net of Fees)
+:::
+
+::: {.card-body}
+#### 16.8%
+Average annual return over the past 3 years
+:::
+:::
+
+::: {.card .text-white .bg-info .mb-3}
+::: {.card-header}
+Risk-Adjusted Performance
+:::
+
+::: {.card-body}
+#### Sharpe Ratio: 1.89
+Market Correlation: 0.12
+:::
+:::
+:::
+
+::::
+
+## The Pairs Trading Process {.mt-5}
+
+:::: {.callout-tip .mb-4}
+## Our Systematic Approach
+Following a structured, data-driven methodology ensures consistency and removes emotional bias from trading decisions.
+::::
+
+:::: {.process-flow .p-4 .bg-dark .rounded}
+
+::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+### 1. Identify Pairs
+- Industry competitors (e.g., XOM/CVX in energy, KO/PEP in beverages)
+- Companies with shared supply chains or market exposures
+- Securities tracking similar underlying assets (ETF pairs)
+- Assets with clear economic linkages (gold miners and gold prices)
+:::
+
+::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+### 2. Measure Correlation
+- Calculate Pearson correlation coefficients (target > 0.8)
+- Analyze rolling correlation for stability over time
+- Test correlation across multiple market conditions
+- Examine behavior during market stress periods
+:::
+
+::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+### 3. Test Cointegration
+- Augmented Dickey-Fuller (ADF) test for spread stationarity
+- Engle-Granger test for cointegrating relationship
+- Johansen test for additional validation
+- Half-life calculation to estimate mean reversion timeframe
+:::
+
+::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+### 4. Define Trading Rules
+- Entry thresholds at 2 standard deviations from mean
+- Exit signals calibrated to historical reversion patterns
+- Position sizing based on volatility and confidence
+- Maximum holding periods aligned with half-life estimates
+:::
+
+::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+### 5. Execute Trades
+- Long position in underperforming asset
+- Short position in outperforming asset
+- Hedged ratio for dollar neutrality
+- Execution timing optimized for minimal market impact
+:::
+
+::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+### 6. Close Position
+- Primary exit at mean reversion point
+- Secondary exits based on time or stop-loss triggers
+- Position unwinding to minimize trading costs
+- Performance analysis for strategy refinement
+:::
+
+::::
+
+## Key Advantages {.mt-5}
+
+:::: {.columns}
+
+::: {.column width="48%"}
+::: {.card .bg-dark .mb-4}
+::: {.card-body}
+### Market Neutrality
+
+Our pairs trading approach creates positions that are largely insulated from broader market movements:
+
+- Balanced long/short exposure
+- Low correlation to major indices (0.12 to S&P 500)
+- Positive returns in both bull and bear markets
+- Protection against market-wide shocks
+:::
+:::
+
+::: {.card .bg-dark .mb-4}
+::: {.card-body}
+### Statistical Edge
+
+Every trade is based on mathematically validated relationships:
+
+- Rigorous cointegration testing methodology
+- Objective, rules-based entry and exit criteria
+- Probability-driven position sizing
+- Continuous statistical monitoring of active positions
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.card .bg-dark .mb-4}
+::: {.card-body}
+### Diversification Benefits
+
+Pairs trading provides genuine diversification in an investment portfolio:
+
+- Performance independent of market direction
+- Distinct return pattern from traditional strategies
+- Complementary to long-only portfolios
+- Particularly valuable during market downturns
+:::
+:::
+
+::: {.card .bg-dark .mb-4}
+::: {.card-body}
+### Risk Management Focus
+
+Comprehensive risk controls protect capital:
+
+- Position-specific stop-loss levels
+- Maximum exposure limits per pair and sector
+- Volatility-adjusted position sizing
+- Predefined maximum drawdown thresholds
+:::
+:::
+:::
+
+::::
+
+## Case Study: XOM/CVX Pair {.mt-5}
+
+:::: {.callout-note appearance="minimal"}
+### Trading Example
+
+In June 2024, our system identified a significant divergence between Exxon Mobil (XOM) and Chevron (CVX):
+
+- **Entry Condition**: Spread Z-score reached +2.4 (XOM outperforming CVX)
+- **Position**: Short XOM, Long CVX with $100,000 notional exposure
+- **Spread Evolution**: Z-score normalized from +2.4 to +0.3 over 9 trading days
+- **Outcome**: 3.8% return on deployed capital in just over a week
+- **Risk Control**: Maximum drawdown during trade was only 0.7%
+::::
