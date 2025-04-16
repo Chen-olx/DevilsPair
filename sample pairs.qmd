@@ -177,7 +177,6 @@ Plot.plot({
         title: d => `Exit: ${d.timestamp} (Z: ${d.zscore})`
       }) : null,
 
-    // 股票价格曲线：XOM 的价格（归一化显示）
     displayOptions.includes("Stock Prices") ?
       Plot.line(selectedData, {
         x: "timestamp",
