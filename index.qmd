@@ -9,6 +9,8 @@ execute:
 ::: {.hero .p-5 .text-center .bg-dark .text-white .rounded .mb-5}
 # Statistical Arbitrage Through Pairs Trading
 ### A market-neutral strategy capturing price divergences between correlated assets
+
+[Explore Our Indicators »](indicators.html){.btn .btn-primary .mt-3}
 :::
 
 ## Welcome to DevilsPair {.mt-4}

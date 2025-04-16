@@ -8,6 +8,8 @@ execute:
 
 DevilsPair employs a sophisticated array of statistical tools to identify, validate, and trade pairs with precision. This page explains the key indicators that drive our decision-making process.
 
+---
+
 ## Correlation Measures
 
 Correlation analysis forms the foundation of our pair selection process, helping us identify assets that tend to move together.
@@ -16,13 +18,17 @@ Correlation analysis forms the foundation of our pair selection process, helping
 
 The Pearson correlation coefficient measures the linear relationship between two assets on a scale of -1 to +1:
 
-$$\rho(X,Y) = \frac{Cov(X,Y)}{\sigma_X \times \sigma_Y}$$
+$$
+\rho(X,Y) = \frac{Cov(X,Y)}{\sigma_X \times \sigma_Y}
+$$
 
 Where:
 - $Cov(X,Y)$ is the covariance between assets X and Y
 - $\sigma_X$ and $\sigma_Y$ are the standard deviations of X and Y respectively
 
-We typically target correlations above 0.8 for optimal pairs.
+::: {.callout-note}
+We typically target correlations above **0.8** for optimal pairs.
+:::
 
 ### Rolling Correlation
 
@@ -33,6 +39,7 @@ The analysis of rolling correlations reveals how relationships can shift over ti
 ### Correlation Stability
 
 We calculate the standard deviation of rolling correlation to measure relationship consistency. Lower values indicate more stable pairs with predictable behavior, which is critical for minimizing unexpected divergence risk.
+
 
 **Correlation Stability Metrics for Selected Pairs:**
 
@@ -45,7 +52,9 @@ We calculate the standard deviation of rolling correlation to measure relationsh
 | KO/PEP | 0.82 | 0.09 | 9.1 |
 | HD/LOW | 0.84 | 0.11 | 8.9 |
 
+::: {.callout-note}
 Pairs with higher stability scores (lower standard deviation of correlation) tend to provide more reliable trading opportunities with more predictable mean reversion behavior.
+:::
 
 ## Cointegration Tests
 
@@ -57,7 +66,9 @@ The ADF test determines whether the spread between two assets is stationary, whi
 
 The ADF test equation is:
 
-$$\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_p \Delta y_{t-p} + \epsilon_t$$
+$$
+\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_p \Delta y_{t-p} + \epsilon_t
+$$
 
 We reject the null hypothesis of a unit root (non-stationarity) when the test statistic is more negative than the critical value.
 
@@ -72,7 +83,9 @@ We reject the null hypothesis of a unit root (non-stationarity) when the test st
 | KO/PEP | -2.62 | 0.089 | -2.86 | No |
 | HD/LOW | -3.15 | 0.024 | -2.86 | Yes |
 
+::: {.callout-note}
 Pairs with test statistics below the critical value (and p-values < 0.05) exhibit statistically significant cointegration and are suitable candidates for our strategy.
+:::
 
 ### Engle-Granger Test
 
@@ -107,11 +120,15 @@ Once pairs are validated through correlation and cointegration testing, we analy
 
 The spread between paired assets is computed as:
 
-$$\text{Spread} = \log(Price_A) - \log(Price_B)$$
+$$
+\text{Spread} = \log(Price_A) - \log(Price_B)
+$$
 
 The logarithmic transformation normalizes price scales. Alternatively, we sometimes use the ratio method for certain pair types:
 
-$$\text{Ratio Spread} = \frac{Price_A}{Price_B}$$
+$$
+\text{Ratio Spread} = \frac{Price_A}{Price_B}
+$$
 
 Both approaches are adjusted for the hedge ratio to maintain dollar neutrality.
 
@@ -121,7 +138,9 @@ The log spread and ratio spread calculations capture slightly different aspects 
 
 We normalize the spread to measure deviation from equilibrium using the Z-score:
 
-$$\text{Z-score} = \frac{\text{Spread} - \text{Mean(Spread)}}{\text{Std(Spread)}}$$
+$$
+\text{Z-score} = \frac{\text{Spread} - \text{Mean(Spread)}}{\text{Std(Spread)}}
+$$
 
 This is calculated using rolling windows (typically 20-30 days) and provides a standardized measure for trade signals.
 
@@ -131,7 +150,9 @@ Our trading system generates signals based on Z-score thresholds. Typical entry 
 
 To understand how quickly the spread returns to its mean, we estimate the half-life using an AR(1) model:
 
-$$\text{Half-life} = \frac{-\ln(2)}{\ln(\rho)}$$
+$$
+\text{Half-life} = \frac{-\ln(2)}{\ln(\rho)}
+$$
 
 Where $\rho$ is the coefficient from the regression of the spread's change on its lagged value. This calculation helps us determine appropriate holding periods and set expectations for trade duration.
 
@@ -170,7 +191,9 @@ We determine position sizes based on:
 
 The formula below represents our base position sizing calculation:
 
-$$\text{Position Size} = \frac{\text{Risk Allocation}}{\text{Pair Volatility} \times \text{Stop Loss Distance}}$$
+$$
+\text{Position Size} = \frac{\text{Risk Allocation}}{\text{Pair Volatility} \times \text{Stop Loss Distance}}
+$$
 
 This approach ensures consistent risk exposure across different pairs regardless of their individual characteristics.
 
@@ -196,7 +219,9 @@ We incorporate the VIX market volatility index as an adjustment factor:
 
 The formula for adjusted Z-score thresholds is:
 
-$$\text{Adjusted Z-threshold} = \text{Base Z-threshold} \times \left(1 + \alpha \times \frac{\text{VIX} - \text{VIX}_{\text{avg}}}{\text{VIX}_{\text{avg}}}\right)$$
+$$
+\text{Adjusted Z-threshold} = \text{Base Z-threshold} \times \left(1 + \alpha \times \frac{\text{VIX} - \text{VIX}_{\text{avg}}}{\text{VIX}_{\text{avg}}}\right)
+$$
 
 Where $\alpha$ is a sensitivity parameter calibrated to historical performance.
 

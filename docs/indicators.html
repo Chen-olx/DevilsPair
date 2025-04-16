@@ -233,15 +233,30 @@ window.Quarto = {
 
 
 <p>DevilsPair employs a sophisticated array of statistical tools to identify, validate, and trade pairs with precision. This page explains the key indicators that drive our decision-making process.</p>
+<hr>
 <section id="correlation-measures" class="level2">
 <h2 class="anchored" data-anchor-id="correlation-measures">Correlation Measures</h2>
 <p>Correlation analysis forms the foundation of our pair selection process, helping us identify assets that tend to move together.</p>
 <section id="pearson-correlation" class="level3">
 <h3 class="anchored" data-anchor-id="pearson-correlation">Pearson Correlation</h3>
 <p>The Pearson correlation coefficient measures the linear relationship between two assets on a scale of -1 to +1:</p>
-<p><span class="math display">\rho(X,Y) = \frac{Cov(X,Y)}{\sigma_X \times \sigma_Y}</span></p>
+<p><span class="math display">
+\rho(X,Y) = \frac{Cov(X,Y)}{\sigma_X \times \sigma_Y}
+</span></p>
 <p>Where: - <span class="math inline">Cov(X,Y)</span> is the covariance between assets X and Y - <span class="math inline">\sigma_X</span> and <span class="math inline">\sigma_Y</span> are the standard deviations of X and Y respectively</p>
-<p>We typically target correlations above 0.8 for optimal pairs.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We typically target correlations above <strong>0.8</strong> for optimal pairs.</p>
+</div>
+</div>
 </section>
 <section id="rolling-correlation" class="level3">
 <h3 class="anchored" data-anchor-id="rolling-correlation">Rolling Correlation</h3>
@@ -300,7 +315,19 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Pairs with higher stability scores (lower standard deviation of correlation) tend to provide more reliable trading opportunities with more predictable mean reversion behavior.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="cointegration-tests" class="level2">
@@ -310,7 +337,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="augmented-dickey-fuller-test">Augmented Dickey-Fuller Test</h3>
 <p>The ADF test determines whether the spread between two assets is stationary, which indicates mean-reverting behavior. The test statistic is compared to critical values, and p-values below 0.05 suggest strong cointegration.</p>
 <p>The ADF test equation is:</p>
-<p><span class="math display">\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_p \Delta y_{t-p} + \epsilon_t</span></p>
+<p><span class="math display">
+\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_p \Delta y_{t-p} + \epsilon_t
+</span></p>
 <p>We reject the null hypothesis of a unit root (non-stationarity) when the test statistic is more negative than the critical value.</p>
 <p><strong>ADF Test Results for Various Pairs:</strong></p>
 <table class="caption-top table">
@@ -368,7 +397,19 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Pairs with test statistics below the critical value (and p-values &lt; 0.05) exhibit statistically significant cointegration and are suitable candidates for our strategy.</p>
+</div>
+</div>
 </section>
 <section id="engle-granger-test" class="level3">
 <h3 class="anchored" data-anchor-id="engle-granger-test">Engle-Granger Test</h3>
@@ -415,23 +456,31 @@ window.Quarto = {
 <section id="spread-calculation" class="level3">
 <h3 class="anchored" data-anchor-id="spread-calculation">Spread Calculation</h3>
 <p>The spread between paired assets is computed as:</p>
-<p><span class="math display">\text{Spread} = \log(Price_A) - \log(Price_B)</span></p>
+<p><span class="math display">
+\text{Spread} = \log(Price_A) - \log(Price_B)
+</span></p>
 <p>The logarithmic transformation normalizes price scales. Alternatively, we sometimes use the ratio method for certain pair types:</p>
-<p><span class="math display">\text{Ratio Spread} = \frac{Price_A}{Price_B}</span></p>
+<p><span class="math display">
+\text{Ratio Spread} = \frac{Price_A}{Price_B}
+</span></p>
 <p>Both approaches are adjusted for the hedge ratio to maintain dollar neutrality.</p>
 <p>The log spread and ratio spread calculations capture slightly different aspects of the relationship between paired assets. While both approaches identify mean-reverting behavior, the log spread is preferred for pairs with significant price level differences, as it normalizes the relationship on a percentage basis.</p>
 </section>
 <section id="z-score-transformation" class="level3">
 <h3 class="anchored" data-anchor-id="z-score-transformation">Z-Score Transformation</h3>
 <p>We normalize the spread to measure deviation from equilibrium using the Z-score:</p>
-<p><span class="math display">\text{Z-score} = \frac{\text{Spread} - \text{Mean(Spread)}}{\text{Std(Spread)}}</span></p>
+<p><span class="math display">
+\text{Z-score} = \frac{\text{Spread} - \text{Mean(Spread)}}{\text{Std(Spread)}}
+</span></p>
 <p>This is calculated using rolling windows (typically 20-30 days) and provides a standardized measure for trade signals.</p>
 <p>Our trading system generates signals based on Z-score thresholds. Typical entry points occur when the Z-score exceeds +2 or falls below -2, indicating a significant deviation from the mean relationship. The mean (Z-score = 0) represents our target exit point, while additional boundaries at +1 and -1 may serve as early warning indicators or conservative exit points.</p>
 </section>
 <section id="half-life-estimation" class="level3">
 <h3 class="anchored" data-anchor-id="half-life-estimation">Half-Life Estimation</h3>
 <p>To understand how quickly the spread returns to its mean, we estimate the half-life using an AR(1) model:</p>
-<p><span class="math display">\text{Half-life} = \frac{-\ln(2)}{\ln(\rho)}</span></p>
+<p><span class="math display">
+\text{Half-life} = \frac{-\ln(2)}{\ln(\rho)}
+</span></p>
 <p>Where <span class="math inline">\rho</span> is the coefficient from the regression of the spread’s change on its lagged value. This calculation helps us determine appropriate holding periods and set expectations for trade duration.</p>
 <p>In our universe of tradable pairs, most half-lives fall between 5 and 15 trading days, indicating relatively quick mean reversion. Pairs with very short half-lives (1-3 days) typically offer more frequent trading opportunities but smaller returns per trade, while pairs with longer half-lives (15-30 days) often provide larger returns but with fewer opportunities.</p>
 </section>
@@ -453,7 +502,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="position-sizing">Position Sizing</h3>
 <p>We determine position sizes based on: - Historical volatility of the spread - Statistical confidence in the cointegration relationship - Overall portfolio risk allocation - Current market volatility conditions</p>
 <p>The formula below represents our base position sizing calculation:</p>
-<p><span class="math display">\text{Position Size} = \frac{\text{Risk Allocation}}{\text{Pair Volatility} \times \text{Stop Loss Distance}}</span></p>
+<p><span class="math display">
+\text{Position Size} = \frac{\text{Risk Allocation}}{\text{Pair Volatility} \times \text{Stop Loss Distance}}
+</span></p>
 <p>This approach ensures consistent risk exposure across different pairs regardless of their individual characteristics.</p>
 </section>
 </section>
@@ -469,7 +520,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="vix-integration">VIX Integration</h3>
 <p>We incorporate the VIX market volatility index as an adjustment factor: - Raising entry thresholds during high-VIX environments - Reducing holding periods when market stress increases - Adjusting position sizes inversely to market volatility</p>
 <p>The formula for adjusted Z-score thresholds is:</p>
-<p><span class="math display">\text{Adjusted Z-threshold} = \text{Base Z-threshold} \times \left(1 + \alpha \times \frac{\text{VIX} - \text{VIX}_{\text{avg}}}{\text{VIX}_{\text{avg}}}\right)</span></p>
+<p><span class="math display">
+\text{Adjusted Z-threshold} = \text{Base Z-threshold} \times \left(1 + \alpha \times \frac{\text{VIX} - \text{VIX}_{\text{avg}}}{\text{VIX}_{\text{avg}}}\right)
+</span></p>
 <p>Where <span class="math inline">\alpha</span> is a sensitivity parameter calibrated to historical performance.</p>
 </section>
 <section id="volume-analysis" class="level3">
