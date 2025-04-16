@@ -102,17 +102,17 @@ viewof rangeEnd = Inputs.range([0, zscore_data.length - 1], {
 // 滑动条输入：进场和离场信号的 Z-Score 阈值
 viewof entryThreshold = Inputs.range(
   [1, 3],
-  {value: 0, step: 0.1, label: "Entry Threshold (Z-Score):"}
+  {value: 2, step: 0.1, label: "Entry Threshold (Z-Score):"}
 )
 
 viewof exitThreshold = Inputs.range(
   [0, 1],
-  {value: 0, step: 0.1, label: "Exit Threshold (Z-Score):"}
+  {value: 1, step: 0.1, label: "Exit Threshold (Z-Score):"}
 )
 
 // 选择需要显示的信号和股票价格曲线
 viewof displayOptions = Inputs.checkbox(
-  ["Entry Signals", "Exit Signals", "Stock Prices"],
+  ["Entry Signals", "Exit Signals"],
   {value: ["Entry Signals", "Exit Signals"], label: "Display:"}
 )
 
@@ -130,7 +130,8 @@ exitSignals = selectedData.filter(d => {
 Plot.plot({
   width: 800,
   height: 500,
-  marginRight: 100,
+  marginLeft: 50,
+  marginRight: 20,
   marginBottom: 40,
   style: {
     backgroundColor: "#111",  // 黑底
@@ -175,25 +176,6 @@ Plot.plot({
         fill: "orange",
         r: 4,
         title: d => `Exit: ${d.timestamp} (Z: ${d.zscore})`
-      }) : null,
-
-    displayOptions.includes("Stock Prices") ?
-      Plot.line(selectedData, {
-        x: "timestamp",
-        y: d => (d.XOM_price - 100) / 20,  // 归一化以便在同一图表中显示
-        stroke: "darkgreen",
-        strokeWidth: 1.5,
-        strokeDasharray: "3 3"
-      }) : null,
-
-    // 股票价格曲线：CVX 的价格（归一化显示）
-    displayOptions.includes("Stock Prices") ?
-      Plot.line(selectedData, {
-        x: "timestamp",
-        y: d => (d.CVX_price - 80) / 20,  // 归一化
-        stroke: "darkred",
-        strokeWidth: 1.5,
-        strokeDasharray: "3 3"
       }) : null,
 
     // 图中各个辅助参考线
@@ -269,11 +251,57 @@ The equity curve above shows the growth of our initial $10,000 capital over the 
 
 To provide deeper insights into our trading activity, we analyzed the complete trade blotter and ledger results from our backtest:
 
-![Trade Blotter Details](images/blotter_screenshot.png)
+```{python}
+import pandas as pd
+from IPython.display import HTML
+
+blotter = pd.read_csv("resources/XOM_CVX_blotter.csv")
+
+HTML('''
+<style>
+.scroll-table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.scroll-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.scroll-table th {
+  background-color: #333;
+  font-weight: bold;
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.scroll-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+</style>
+
+<div class="scroll-table-container scroll-table">
+''' + blotter.to_html(index=False) + '''
+</div>
+''')
+```
 
 The trade blotter above shows all transactions executed during our testing period, including entry/exit dates, positions, Z-scores, and P&L for each trade. This record demonstrates our strategy's effectiveness in capturing price divergences between XOM and CVX.
 
-![Ledger Results Summary](images/ledger_screenshot.png)
+```{python}
+import pandas as pd
+ledger = pd.read_csv("resources/XOM_CVX_ledger.csv")
+ledger
+```
 
 The ledger results track daily equity changes and performance throughout the backtest period. This confirms the strategy's stability across various market conditions, with strong results during periods of heightened volatility.
 
@@ -330,12 +358,6 @@ Key observations:
 ![Drawdown Analysis](images/image2_drawdown.png)
 
 The drawdown chart above shows the percentage decline from peak equity values throughout the testing period. The maximum drawdown of 13.38% is moderate and reflects the strategy's effective risk management, especially considering the volatile nature of energy stocks.
-
-### Trading Signals Visualization
-
-![Z-Score and Trading Positions](images/image2_zscore_positions.png)
-
-The chart above displays our Z-score with actual trading positions marked: green triangles for long positions (long XOM, short CVX) and red triangles for short positions (short XOM, long CVX). The vertical dotted lines indicate trade entry and exit points, demonstrating how the strategy captures mean-reverting moves.
 
 ### Strategy Insights
 
