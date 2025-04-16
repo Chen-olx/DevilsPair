@@ -191,19 +191,3 @@ Comprehensive risk controls protect capital:
 :::
 :::
 :::
-
-::::
-
-## Case Study: XOM/CVX Pair {.mt-5}
-
-:::: {.callout-note appearance="minimal"}
-### Trading Example
-
-In June 2024, our system identified a significant divergence between Exxon Mobil (XOM) and Chevron (CVX):
-
-- **Entry Condition**: Spread Z-score reached +2.4 (XOM outperforming CVX)
-- **Position**: Short XOM, Long CVX with $100,000 notional exposure
-- **Spread Evolution**: Z-score normalized from +2.4 to +0.3 over 9 trading days
-- **Outcome**: 3.8% return on deployed capital in just over a week
-- **Risk Control**: Maximum drawdown during trade was only 0.7%
-::::
