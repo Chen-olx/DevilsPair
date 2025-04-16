@@ -9,6 +9,10 @@ website:
   navbar:
     background: primary
     search: true
+    right:
+      - icon: github
+        href: https://github.com/Chen-olx/DevilsPair
+        aria-label: GitHub
     left:
       - href: index.qmd
         text: Home

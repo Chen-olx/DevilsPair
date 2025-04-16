@@ -1,11 +1,17 @@
 ---
 title: "Sample Pairs"
-format: html
+format:
+  html:
+    code-fold: false
+    code-tools: false
+    html-math-method: katex
+    self-contained: true
 jupyter: python3
 execute:
   echo: false
 resources:
   - images/
+  - xom_cvx_data.csv
 ---
 
 ## Energy Sector Pairs: XOM/CVX
@@ -67,6 +73,185 @@ Based on our statistical analysis, we established the following trading paramete
 * **Half-Life**: 42.41 days (relatively long)
 * **Maximum Holding Period**: 63 days (1.5× half-life)
 
+## Interactive Z-Score Strategy Explorer
+
+The interactive tool below allows you to experiment with different trading parameters and explore how they would affect the signals generated for the XOM/CVX pair. Adjust the thresholds to see how changes in your trading rules would impact potential entry and exit points.
+
+```{ojs}
+// 从 zscore.csv 文件加载真实数据
+zscore_data = FileAttachment("resources/zscore.csv").csv(d => ({
+  timestamp: new Date(d.timestamp),
+  XOM_price: +d.XOM_close,
+  CVX_price: +d.CVX_close,
+  zscore: +d.zscore
+}))
+
+// 滑动条输入：选取数据的起始和结束索引
+viewof rangeStart = Inputs.range([0, zscore_data.length - 1], {
+  value: 0,
+  step: 1,
+  label: "Start Date Index"
+})
+
+viewof rangeEnd = Inputs.range([0, zscore_data.length - 1], {
+  value: 150,
+  step: 1,
+  label: "End Date Index"
+})
+
+// 滑动条输入：进场和离场信号的 Z-Score 阈值
+viewof entryThreshold = Inputs.range(
+  [1, 3],
+  {value: 0, step: 0.1, label: "Entry Threshold (Z-Score):"}
+)
+
+viewof exitThreshold = Inputs.range(
+  [0, 1],
+  {value: 0, step: 0.1, label: "Exit Threshold (Z-Score):"}
+)
+
+// 选择需要显示的信号和股票价格曲线
+viewof displayOptions = Inputs.checkbox(
+  ["Entry Signals", "Exit Signals", "Stock Prices"],
+  {value: ["Entry Signals", "Exit Signals"], label: "Display:"}
+)
+
+// 筛选指定区间内的数据
+selectedData = zscore_data.slice(rangeStart, rangeEnd)
+
+// 筛选进场（long/short）和离场信号
+entryLongSignals = selectedData.filter(d => d.zscore <= -entryThreshold)
+entryShortSignals = selectedData.filter(d => d.zscore >= entryThreshold)
+exitSignals = selectedData.filter(d => {
+  return Math.abs(d.zscore) <= exitThreshold && Math.abs(d.zscore) > 0.1;
+})
+
+// 绘制交互式图表
+Plot.plot({
+  width: 800,
+  height: 500,
+  marginRight: 100,
+  marginBottom: 40,
+  style: {
+    backgroundColor: "#111",  // 黑底
+    color: "#eee",            // 白字
+    fontSize: 12,
+    fontFamily: "sans-serif"
+  },
+  marks: [
+    // Z-Score 折线图
+    Plot.line(selectedData, {
+      x: "timestamp",
+      y: "zscore",
+      stroke: "steelblue",
+      strokeWidth: 2
+    }),
+
+    // 进场信号：做多信号
+    displayOptions.includes("Entry Signals") ?
+      Plot.dot(entryLongSignals, {
+        x: "timestamp",
+        y: "zscore",
+        fill: "green",
+        r: 6,
+        title: d => `Long Entry: ${d.timestamp} (Z: ${d.zscore})`
+      }) : null,
+
+    // 进场信号：做空信号
+    displayOptions.includes("Entry Signals") ?
+      Plot.dot(entryShortSignals, {
+        x: "timestamp",
+        y: "zscore",
+        fill: "red",
+        r: 6,
+        title: d => `Short Entry: ${d.timestamp} (Z: ${d.zscore})`
+      }) : null,
+
+    // 离场信号
+    displayOptions.includes("Exit Signals") ?
+      Plot.dot(exitSignals, {
+        x: "timestamp",
+        y: "zscore",
+        fill: "orange",
+        r: 4,
+        title: d => `Exit: ${d.timestamp} (Z: ${d.zscore})`
+      }) : null,
+
+    // 股票价格曲线：XOM 的价格（归一化显示）
+    displayOptions.includes("Stock Prices") ?
+      Plot.line(selectedData, {
+        x: "timestamp",
+        y: d => (d.XOM_price - 100) / 20,  // 归一化以便在同一图表中显示
+        stroke: "darkgreen",
+        strokeWidth: 1.5,
+        strokeDasharray: "3 3"
+      }) : null,
+
+    // 股票价格曲线：CVX 的价格（归一化显示）
+    displayOptions.includes("Stock Prices") ?
+      Plot.line(selectedData, {
+        x: "timestamp",
+        y: d => (d.CVX_price - 80) / 20,  // 归一化
+        stroke: "darkred",
+        strokeWidth: 1.5,
+        strokeDasharray: "3 3"
+      }) : null,
+
+    // 图中各个辅助参考线
+    Plot.ruleY([0], {stroke: "gray", strokeWidth: 1}),
+    Plot.ruleY([entryThreshold], {stroke: "red", strokeDasharray: "4 4"}),
+    Plot.ruleY([-entryThreshold], {stroke: "green", strokeDasharray: "4 4"}),
+    Plot.ruleY([exitThreshold], {stroke: "orange", strokeDasharray: "4 4", strokeOpacity: 0.7}),
+    Plot.ruleY([-exitThreshold], {stroke: "orange", strokeDasharray: "4 4", strokeOpacity: 0.7})
+  ],
+
+  grid: true,
+  x: {
+    label: "Date →",
+    type: "time",  // 明确指定这是时间类型
+    tickFormat: "%Y-%m-%d",  // 直接使用格式字符串
+    labelAnchor: "center"
+  },
+  y: {
+    label: "← Z-Score →",
+    domain: [-4, 4],
+    labelAnchor: "center"
+  },
+  title: "Interactive Z-Score Analysis for XOM/CVX Pair"
+})
+
+// 计算交易指标
+longEntrySignals = entryLongSignals.length
+shortEntrySignals = entryShortSignals.length
+exitSignalsNum = exitSignals.length
+avgZscoreAbs = d3.mean(selectedData, d => Math.abs(d.zscore))
+pctTimeAboveThreshold = (((entryLongSignals.length + entryShortSignals.length) / selectedData.length) * 100).toFixed(1) + "%"
+signalRatio = ((entryLongSignals.length + entryShortSignals.length) / Math.max(1, exitSignals.length))
+
+// 显示指标数据表
+Inputs.table(
+  [
+    {metric: "Long Entry Signals (Z < 0)", value: longEntrySignals},
+    {metric: "Short Entry Signals (Z > 0)", value: shortEntrySignals},
+    {metric: "Exit Signals", value: exitSignalsNum},
+    {metric: "Average |Z-Score|", value: avgZscoreAbs},
+    {metric: "% Time Beyond Entry Threshold", value: pctTimeAboveThreshold},
+    {metric: "Entry/Exit Signal Ratio", value: signalRatio}
+  ],
+  {
+    header: {
+      metric: "Trading Metric",
+      value: "Value"
+    },
+    width: {
+      metric: 200,
+      value: 100
+    }
+  }
+)
+
+```
+
 The half-life analysis indicates that while mean reversion does occur, it happens at a relatively slow pace. This suggests a medium-term trading horizon for this pair.
 
 ![Z-Score with Trading Signals](images/image1_zscore.png)
@@ -80,6 +265,26 @@ Our backtest of the XOM/CVX pair trading strategy demonstrates impressive result
 ![Equity Curve](images/image2_equity_curve.png)
 
 The equity curve above shows the growth of our initial $10,000 capital over the testing period. The steady upward trend demonstrates the consistent profitability of the strategy, reaching over $13,600 by the end of the period.
+
+### Detailed Trade Analysis
+
+To provide deeper insights into our trading activity, we analyzed the complete trade blotter and ledger results from our backtest:
+
+![Trade Blotter Details](images/blotter_screenshot.png)
+
+The trade blotter above shows all transactions executed during our testing period, including entry/exit dates, positions, Z-scores, and P&L for each trade. This record demonstrates our strategy's effectiveness in capturing price divergences between XOM and CVX.
+
+![Ledger Results Summary](images/ledger_screenshot.png)
+
+The ledger results track daily equity changes and performance throughout the backtest period. This confirms the strategy's stability across various market conditions, with strong results during periods of heightened volatility.
+
+Key observations:
+
+1. **Position Management**: Consistent implementation of the hedge ratio maintained market neutrality.
+
+2. **Holding Periods**: Average holding period of 14.4 days, shorter than our calculated half-life (42.41 days).
+
+3. **Equity Growth**: Steady equity progression with manageable drawdowns, confirming the strategy's robust risk-return profile.
 
 ### Key Performance Metrics
 
