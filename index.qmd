@@ -6,11 +6,11 @@ execute:
   echo: false
 ---
 
-::: {.hero .p-5 .text-center .bg-dark .text-white .rounded .mb-5}
+::: {.hero .p-5 .text-center .text-white .rounded .mb-5 style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); background-size: cover;"}
 # Statistical Arbitrage Through Pairs Trading
 ### A market-neutral strategy capturing price divergences between correlated assets
 
-[Explore Our Indicators »](indicators.html){.btn .btn-primary .mt-3}
+[Explore Our Indicators »](indicators.html){.btn .btn-light .mt-3}
 :::
 
 ## Welcome to DevilsPair {.mt-4}
@@ -192,4 +192,5 @@ Comprehensive risk controls protect capital:
 - Predefined maximum drawdown thresholds
 :::
 :::
-:::
+
+</file>
