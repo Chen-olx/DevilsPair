@@ -2,10 +2,7 @@
 title: "Sample Pairs"
 format:
   html:
-    code-fold: false
-    code-tools: false
     html-math-method: katex
-    self-contained: true
 jupyter: python3
 execute:
   echo: false
@@ -18,7 +15,7 @@ resources:
 
 This case study examines the performance of a statistical arbitrage strategy using Exxon Mobil (XOM) and Chevron (CVX), two major integrated oil and gas companies with similar business models and market exposures.
 
-![Stock Price Trend Comparison](images/image1_stock_prices.png)
+<iframe src="images/XOM_CVX_price_trend.html" width="100%" height="500" frameborder="0"></iframe>
 
 ### Fundamental Relationship
 * Both are integrated oil majors with similar business models spanning exploration, production, refining, and retail
@@ -35,11 +32,11 @@ Our comprehensive statistical analysis confirms the strong relationship between 
 
 | Metric | Value | Interpretation |
 |--------|-------|----------------|
-| Pearson Correlation | 0.8497 | Strong positive correlation |
-| Correlation Std Dev | 0.3172 | Moderate variability in correlation |
-| Stability Score | -21.7160 | Correlation shows some instability |
+| Pearson Correlation | 0.8532 | Strong positive correlation |
+| Correlation Std Dev | 0.3195 | Moderate variability in correlation |
+| Stability Score | -21.9450 | Correlation shows some instability |
 
-![Rolling Correlation](images/image1_rolling_correlation.png)
+<iframe src="images/XOM_CVX_rolling_corr.html" width="100%" height="500" frameborder="0"></iframe>
 
 The rolling correlation chart above demonstrates the generally strong relationship between XOM and CVX over time. The 60-day rolling correlation (purple line) and 120-day rolling correlation (orange line) both remain mostly above 0.8, though there are periods of significant drops that contribute to the negative stability score.
 
@@ -49,12 +46,12 @@ While the correlation stability shows some concerns, the cointegration tests pro
 
 | Test | Statistic | Critical Value (5%) | p-value | Result |
 |------|-----------|---------------------|---------|--------|
-| ADF Test | -2.9819 | -2.8654 | 0.0366 | Cointegrated ✓ |
-| Johansen Trace | 24.4420 | 15.4943 | - | Cointegrated ✓ |
+| ADF Test | -2.8878 | -2.8654 | 0.0468 | Cointegrated ✓ |
+| Johansen Trace | 19.3415 | 15.4943 | - | Cointegrated ✓ |
 
-Both tests confirm the presence of cointegration, indicating that while XOM and CVX prices may diverge temporarily, they tend to revert to their long-term equilibrium relationship. The hedge ratio of 0.1816 suggests that for each share of XOM, approximately 0.18 shares of CVX should be traded in the opposite direction to create a market-neutral position.
+Both tests confirm the presence of cointegration, indicating that while XOM and CVX prices may diverge temporarily, they tend to revert to their long-term equilibrium relationship. The hedge ratio of 0.2015 suggests that for each share of XOM, approximately 0.20 shares of CVX should be traded in the opposite direction to create a market-neutral position.
 
-![Spread Mean-Reverting Series](images/image1_spread.png)
+<iframe src="images/XOM_CVX_spread.html" width="100%" height="500" frameborder="0"></iframe>
 
 The spread chart above shows the difference between the two stocks (after applying the hedge ratio), demonstrating the mean-reverting property that is essential for pairs trading. While the spread appears non-stationary at times, our statistical tests confirm it is indeed mean-reverting over the analysis period.
 
@@ -65,8 +62,8 @@ Based on our statistical analysis, we established the following trading paramete
 * **Entry Signal**: Z-score exceeding +/- 2.0 standard deviations
 * **Exit Signal**: Z-score returning to +/- 0.5 standard deviations
 * **Stop-Loss**: Z-score exceeding +/- 3.0 standard deviations
-* **Half-Life**: 42.41 days (relatively long)
-* **Maximum Holding Period**: 63 days (1.5× half-life)
+* **Half-Life**: 41.97 days (relatively long)
+* **Maximum Holding Period**: 62 days (1.5× half-life)
 
 ## Interactive Z-Score Strategy Explorer
 
@@ -230,7 +227,7 @@ Inputs.table(
 
 The half-life analysis indicates that while mean reversion does occur, it happens at a relatively slow pace. This suggests a medium-term trading horizon for this pair.
 
-![Z-Score with Trading Signals](images/image1_zscore.png)
+<iframe src="images/XOM_CVX_zscore.html" width="100%" height="500" frameborder="0"></iframe>
 
 The Z-score chart above shows the normalized spread with our entry and exit thresholds. When the Z-score crosses above +2 or below -2 (red dashed lines), we enter a trade in the direction of mean reversion. The frequent oscillation of the Z-score around these thresholds provides numerous trading opportunities.
 
@@ -238,9 +235,9 @@ The Z-score chart above shows the normalized spread with our entry and exit thre
 
 Our backtest of the XOM/CVX pair trading strategy demonstrates impressive results over the test period:
 
-![Equity Curve](images/image2_equity_curve.png)
+<iframe src="images/XOM_CVX_market_value_curve.html" width="100%" height="500" frameborder="0"></iframe>
 
-The equity curve above shows the growth of our initial $10,000 capital over the testing period. The steady upward trend demonstrates the consistent profitability of the strategy, reaching over $13,600 by the end of the period.
+The market value curve above shows the growth of our initial $10,000 capital over the testing period. The steady upward trend demonstrates the consistent profitability of the strategy, reaching over $12,500 by the end of the period.
 
 ### Blotter
 
@@ -339,7 +336,7 @@ Key observations:
 
 1. **Position Management**: Consistent implementation of the hedge ratio maintained market neutrality.
 
-2. **Holding Periods**: Average holding period of 14.4 days, shorter than our calculated half-life (42.41 days).
+2. **Holding Periods**: Average holding period of 12.84 days, shorter than our calculated half-life (41.97 days).
 
 3. **Equity Growth**: Steady equity progression with manageable drawdowns, confirming the strategy's robust risk-return profile.
 
@@ -350,17 +347,17 @@ Key observations:
 ::: {.column width="48%"}
 ::: {.card .bg-success .text-white .p-3 .mb-3}
 ### Profitability
-* **Total Profit**: $1,665.63
-* **Average Profit per Trade**: $41.64
-* **Profit Factor**: 1.93
+* **Total Profit**: $2523.47
+* **Average Profit per Trade**: $68.20
+* **Profit Factor**: 1.96
 :::
 
 ::: {.card .bg-info .text-white .p-3 .mb-3}
 ### Trade Statistics
-* **Win Rate**: 77.50%
-* **Average Win**: $111.25
-* **Average Loss**: -$198.13
-* **Average Holding Period**: 11.75 days
+* **Win Rate**: 78.38%
+* **Average Win**: $178.04
+* **Average Loss**: $-329.94
+* **Average Holding Period**: 12.84 days
 :::
 :::
 
@@ -370,44 +367,47 @@ Key observations:
 ::: {.column width="48%"}
 ::: {.card .bg-warning .text-white .p-3 .mb-3}
 ### Risk Metrics
-* **Maximum Drawdown**: -13.38%
-* **Sharpe Ratio**: 0.79
-* **Sortino Ratio**: 0.90
+* **Volatility (annualized)**: 14.43%
+* **Maximum Drawdown**: -8.82%
+* **Sharpe Ratio**: 0.77
+* **Sortino Ratio**: 0.85
 :::
 
 ::: {.card .bg-primary .text-white .p-3 .mb-3}
 ### Overall Result
 * **Initial Capital**: $10,000
-* **Final Equity**: $13,632.27
-* **Return**: 36.32%
+* **Final Equity**: $12,523.47
+* **Alpha (annualized)**: 0.1071
+* **Beta**: 0.0337
+* **Geometric Mean Return (CAGR)**: 7.84%
 :::
 :::
 
 ::::
 
-![Drawdown Analysis](images/image2_drawdown.png)
+<iframe src="images/XOM_CVX_drawdown.html" width="100%" height="500" frameborder="0"></iframe>
 
-The drawdown chart above shows the percentage decline from peak equity values throughout the testing period. The maximum drawdown of 13.38% is moderate and reflects the strategy's effective risk management, especially considering the volatile nature of energy stocks.
+The drawdown chart above shows the percentage decline from peak equity values throughout the testing period. The maximum drawdown of 8.82% is moderate and reflects the strategy's effective risk management, especially considering the volatile nature of energy stocks.
 
 ### Strategy Insights
 
 Several key observations emerge from our trading results:
 
-1. **High Win Rate**: The 77.50% win rate confirms the strong mean-reversion tendency between XOM and CVX, validating our statistical approach.
+1. **High Win Rate**: The 78.38% win rate confirms the strong mean-reversion tendency between XOM and CVX, validating our statistical approach.
 
-2. **Asymmetric Risk-Reward**: While average losses (-$198.13) are larger than average wins ($111.25), the high win rate more than compensates, resulting in a strong profit factor of 1.93.
+2. **Asymmetric Risk-Reward**: While average losses ($-329.94) are larger than average wins ($178.04), the high win rate more than compensates, resulting in a strong profit factor of 1.96.
 
-3. **Reasonable Drawdowns**: The maximum drawdown of 13.38% is well within acceptable limits for a market-neutral strategy, indicating effective risk management.
+3. **Reasonable Drawdowns**: The maximum drawdown of 8.82% is well within acceptable limits for a market-neutral strategy, indicating effective risk management.
 
-4. **Efficient Holding Period**: Despite the relatively long half-life estimate (42.41 days), actual trades averaged just 11.75 days, suggesting that mean reversion often occurs faster than the statistical estimate.
+4. **Efficient Holding Period**: Despite the relatively long half-life estimate (41.97 days), actual trades averaged just 12.84 days, suggesting that mean reversion often occurs faster than the statistical estimate.
 
-5. **Risk-Adjusted Performance**: The Sharpe ratio (0.79) and particularly the Sortino ratio (0.90) demonstrate good risk-adjusted returns, with especially strong performance during downside market moves.
+5. **Risk-Adjusted Performance**: The Sharpe ratio (0.77) and particularly the Sortino ratio (0.85) demonstrate good risk-adjusted returns, with especially strong performance during downside market moves.
 
 ## Challenges and Considerations
 
 While the overall performance is strong, several factors warrant attention:
 
-1. **Correlation Stability**: The negative stability score (-21.716) indicates significant variations in the correlation between XOM and CVX over time, which could introduce periods of strategy underperformance.
+1. **Correlation Stability**: The negative stability score (-21.9450) indicates significant variations in the correlation between XOM and CVX over time, which could introduce periods of strategy underperformance.
 
 2. **Long Half-Life**: The relatively long statistical half-life (42.41 days) suggests that some divergences might persist for extended periods, requiring patience and strong risk management.
 

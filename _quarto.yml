@@ -23,6 +23,9 @@ website:
       - href: about.qmd
         text: About
 
+resources:
+  - images/
+
 format:
   html:
     theme: darkly
