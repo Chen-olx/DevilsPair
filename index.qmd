@@ -13,6 +13,21 @@ execute:
 [Explore Our Indicators »](indicators.html){.btn .btn-light .mt-3}
 :::
 
+## Strategy Overview
+
+Here's a video explaining our pairs trading strategy:
+
+<div style="text-align: center;">
+  <iframe
+    src="https://www.youtube.com/embed/pdgFV2nM3lk"
+    title="MSTR-BTC Strategy Explanation"
+    width="800"
+    height="450"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ## Welcome to DevilsPair {.mt-4}
 
 Welcome to DevilsPair, your destination for market-neutral trading strategies leveraging statistical relationships between correlated assets. Our specialized approach identifies temporary price divergences between historically related securities, allowing for strategic positions insulated from broader market movements.
