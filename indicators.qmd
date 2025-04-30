@@ -174,7 +174,7 @@ Our entry logic is designed to identify significant divergences from the mean re
 ### Exit Signals
 
 We employ several exit strategies:
-- Primary exit when Z-score returns to mean (0) or crosses specified threshold
+- Primary exit when Z-score returns to mean (0.5) or crosses specified threshold
 - Time-based exits determined by spread half-life estimate
 - Stop-loss triggers based on adverse Z-score movement
 - Take-profit levels customized for each pair's historical behavior

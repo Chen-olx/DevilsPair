@@ -427,7 +427,7 @@ Based on these results, the XOM/CVX pair represents a prime example of statistic
 ## Implementation Recommendation
 For optimal implementation, we recommend:
 
-1. Using the established hedge ratio of 0.1816 to maintain market neutrality
+1. Using the established hedge ratio of 0.2010 to maintain market neutrality
 2. Monitoring correlation stability and adjusting position sizing accordingly
 3. Implementing a trailing stop-loss strategy during periods of extended divergence
 4. Considering additional filters based on energy sector fundamentals
