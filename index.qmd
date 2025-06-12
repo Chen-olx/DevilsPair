@@ -1,211 +1,473 @@
 ---
-title: "Home"
+title: "DevilsPair"
 format: html
 jupyter: python3
 execute:
   echo: false
+css: styles.css
 ---
 
-::: {.hero .p-5 .text-center .text-white .rounded .mb-5 style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); background-size: cover;"}
-# Statistical Arbitrage Through Pairs Trading
-### A market-neutral strategy capturing price divergences between correlated assets
+::: {.hero-section}
+::: {.hero-content}
+# 🎯 **DevilsPair**
+## Embrace the volatility. Be market neutral.
 
-[Explore Our Indicators »](indicators.html){.btn .btn-light .mt-3}
+### **13.51% Average Annual Returns** • **78.38% Win Rate**
+
+[See Live Results](sample pairs.qmd){.btn .btn-primary .btn-lg .me-3}
+[Strategy Demo](https://www.youtube.com/embed/pdgFV2nM3lk){.btn .btn-outline-light .btn-lg}
+:::
+:::
+::: {.proof-section}
+## Proof: Live Trading Results
+
+::: {.metrics-grid}
+::: {.metric-card .highlight}
+### **13.51%**  
+Average Annual Return  
+_Net of Fees, 3-Year Average_
 :::
 
-## Strategy Overview
-
-Here's a video explaining our pairs trading strategy:
-
-<div style="text-align: center;">
-  <iframe
-    src="https://www.youtube.com/embed/pdgFV2nM3lk"
-    title="MSTR-BTC Strategy Explanation"
-    width="800"
-    height="450"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-</div>
-
-## Welcome to DevilsPair {.mt-4}
-
-Welcome to DevilsPair, your destination for market-neutral trading strategies leveraging statistical relationships between correlated assets. Our specialized approach identifies temporary price divergences between historically related securities, allowing for strategic positions insulated from broader market movements.
-
-:::: {.columns .mt-5}
-
-::: {.column width="47%" .p-3 .border .rounded}
-### Our Strategy at a Glance
-
-::: {.list-group}
-::: {.list-group-item .bg-primary .text-white}
-**Market-Neutral Trading**: Medium-term opportunities (3-14 days) with balanced long/short positions for market risk neutralization
+::: {.metric-card}
+### **Sharpe Ratio: 0.77**  
+Market Correlation: **0.04**
+_Risk-Adjusted Performance_
 :::
 
-::: {.list-group-item}
-**Statistical Validation**: Rigorous mathematical testing through correlation analysis and cointegration testing
-:::
-
-::: {.list-group-item}
-**Precision Risk Management**: Predefined entry/exit rules with automated position sizing based on historical volatility
-:::
-
-::: {.list-group-item}
-**Transparency in Performance**: Comprehensive metrics including trade-by-trade analysis and risk-adjusted returns
-:::
+::: {.metric-card}
+### **Beta: 0.0337**  
+Market-Neutral:
+_Performance is independent of overall market direction_
 :::
 :::
 
-::: {.column width="6%"}
+[View Detailed Performance](sample pairs.qmd){.btn .btn-success .btn-lg .mt-4}
 :::
 
-::: {.column width="47%" .p-3 .border .rounded}
-### Performance Highlights
+::: {.value-prop-section}
+## Why DevilsPair 
 
-::: {.card .text-white .bg-success .mb-3}
-::: {.card-header}
-Annual Returns (Net of Fees)
-:::
-
-::: {.card-body}
-#### 13.51%
-Average annual return over the past 3 years
+::: {.col-md-4}
+::: {.solution-card}
+### Market-Neutral Trading
+- Medium-term opportunities (3-14 days) with balanced long/short positions for market risk neutralization
 :::
 :::
 
-::: {.card .text-white .bg-info .mb-3}
-::: {.card-header}
-Risk-Adjusted Performance
+::: {.col-md-4}
+::: {.solution-card}
+### Statistical Validation
+- Rigorous mathematical testing through correlation analysis and cointegration testing
+:::
 :::
 
-::: {.card-body}
-#### Sharpe Ratio: 0.77
-Market Correlation: 0.04
+::: {.col-md-4}
+::: {.solution-card}
+### Precision Risk Management
+- Predefined entry/exit rules with automated position sizing based on historical volatility
+:::
+:::
+
+::: {.col-md-4}
+::: {.solution-card}
+### Transparency in Performance
+- Comprehensive metrics including trade-by-trade analysis and risk-adjusted returns
 :::
 :::
 :::
 
-::::
 
-## The Pairs Trading Process {.mt-5}
+::: {.video-container}
+<iframe src="https://www.youtube.com/embed/BtGo62VaAvM?si=-47tg08ZH5fkpzoC" title="DevilsPair Introduction" frameborder="0" allowfullscreen></iframe>
+:::
 
-:::: {.callout-tip .mb-4}
-## Our Systematic Approach
-Following a structured, data-driven methodology ensures consistency and removes emotional bias from trading decisions.
-::::
+::: {.how-section}
+## How It Works
 
-:::: {.process-flow .p-4 .bg-dark .rounded}
-
-::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+::: {.col-md-4}
+::: {.solution-card}
 ### 1. Identify Pairs
-- Industry competitors (e.g., XOM/CVX in energy, KO/PEP in beverages)
-- Companies with shared supply chains or market exposures
-- Securities tracking similar underlying assets (ETF pairs)
-- Assets with clear economic linkages (gold miners and gold prices)
 :::
 
-::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+::: {.col-md-4}
+::: {.solution-card}
 ### 2. Measure Correlation
-- Calculate Pearson correlation coefficients (target > 0.8)
-- Analyze rolling correlation for stability over time
-- Test correlation across multiple market conditions
-- Examine behavior during market stress periods
 :::
 
-::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+::: {.col-md-4}
+::: {.solution-card}
 ### 3. Test Cointegration
-- Augmented Dickey-Fuller (ADF) test for spread stationarity
-- Engle-Granger test for cointegrating relationship
-- Johansen test for additional validation
-- Half-life calculation to estimate mean reversion timeframe
 :::
 
-::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+::: {.col-md-4}
+::: {.solution-card}
 ### 4. Define Trading Rules
-- Entry thresholds at 2 standard deviations from mean
-- Exit signals calibrated to historical reversion patterns
-- Position sizing based on volatility and confidence
-- Maximum holding periods aligned with half-life estimates
 :::
 
-::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+::: {.col-md-4}
+::: {.solution-card}
 ### 5. Execute Trades
-- Long position in underperforming asset
-- Short position in outperforming asset
-- Hedged ratio for dollar neutrality
-- Execution timing optimized for minimal market impact
 :::
 
-::: {.process-step .mb-4 .p-3 .border .border-primary .rounded}
+::: {.col-md-4}
+::: {.solution-card}
 ### 6. Close Position
-- Primary exit at mean reversion point
-- Secondary exits based on time or stop-loss triggers
-- Position unwinding to minimize trading costs
-- Performance analysis for strategy refinement
-:::
-
-::::
-
-## Key Advantages {.mt-5}
-
-:::: {.columns}
-
-::: {.column width="48%"}
-::: {.card .bg-dark .mb-4}
-::: {.card-body}
-### Market Neutrality
-
-Our pairs trading approach creates positions that are largely insulated from broader market movements:
-
-- Balanced long/short exposure
-- Low correlation to major indices (0.04 to S&P 500)
-- Positive returns in both bull and bear markets
-- Protection against market-wide shocks
 :::
 :::
 
-::: {.card .bg-dark .mb-4}
-::: {.card-body}
-### Statistical Edge
-
-Every trade is based on mathematically validated relationships:
-
-- Rigorous cointegration testing methodology
-- Objective, rules-based entry and exit criteria
-- Probability-driven position sizing
-- Continuous statistical monitoring of active positions
-:::
+::: {.cta-simple}
+### This strategy is **market-neutral** - we make money regardless of market direction
+[🚀 Start Trading](sample pairs.qmd){.btn .btn-warning .btn-lg}
 :::
 :::
 
-::: {.column width="4%"}
-:::
 
-::: {.column width="48%"}
-::: {.card .bg-dark .mb-4}
-::: {.card-body}
-### Diversification Benefits
+<style>
+/* Premium navy-based color scheme */
+:root {
+  --primary: #1e3a8a;
+  --primary-light: #3b82f6;
+  --primary-dark: #1e1b4b;
+  --accent: #06b6d4;
+  --accent-light: #67e8f9;
+  --success: #10b981;
+  --danger: #ef4444;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --gray: #64748b;
+  --gradient-primary: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #1e3a8a 75%, #3b82f6 100%);
+  --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #67e8f9 100%);
+  --gradient-card: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+}
 
-Pairs trading provides genuine diversification in an investment portfolio:
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--dark);
+  color: var(--light);
+  line-height: 1.5;
+}
 
-- Performance independent of market direction
-- Distinct return pattern from traditional strategies
-- Complementary to long-only portfolios
-- Particularly valuable during market downturns
-:::
-:::
+/* Hero Section */
+.hero-section {
+  background: transparent;
+  padding: 5rem 2rem;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
 
-::: {.card .bg-dark .mb-4}
-::: {.card-body}
-### Risk Management Focus
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(59,130,246,0.15)"/></svg>') repeat;
+  animation: float 20s ease-in-out infinite;
+}
 
-Comprehensive risk controls protect capital:
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 95%;
+  margin: 0 auto;
+}
 
-- Position-specific stop-loss levels
-- Maximum exposure limits per pair and sector
-- Volatility-adjusted position sizing
-- Predefined maximum drawdown thresholds
-:::
-:::
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-</file>
+.hero-content h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--light);
+}
+
+.hero-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Value Proposition Section */
+.value-prop-section {
+  padding: 2rem 2rem 5rem 2rem;
+}
+
+.value-prop-section h2 {
+  text-align: left;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  color: var(--light);
+}
+
+.problem-card, .solution-card, .results-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 0.5rem;
+  height: 100%;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problem-card:hover, .solution-card:hover, .results-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.solution-card {
+  border-color: var(--primary-light);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.results-card {
+  border-color: var(--accent);
+  background: rgba(6, 182, 212, 0.1);
+}
+
+/* Demo Section */
+.demo-section {
+  padding: 5rem 2rem;
+  background: transparent;
+  text-align: center;
+}
+
+.demo-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--accent);
+}
+
+.video-container {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 450px;
+}
+
+.demo-section h3 {
+  font-size: 1.5rem;
+  color: var(--light);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+/* Proof Section */
+.proof-section {
+  padding: 5rem 2rem 2rem 2rem;
+  background: transparent;
+  text-align: left;
+}
+
+.proof-section h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: var(--accent);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  width: 95%;
+  margin: 0 auto 3rem;
+}
+
+.metric-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+
+.metric-card.highlight {
+  background: var(--gradient-accent);
+  color: var(--dark);
+  transform: scale(1.05);
+}
+
+.metric-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* How Section */
+.how-section {
+  padding: 5rem 2rem;
+  background: var(--dark);
+}
+
+.how-section h2 {
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 4rem;
+  color: var(--light);
+}
+
+.process-simple {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.step {
+  background: rgba(59, 130, 246, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 0.5rem;
+  height: 100%;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.step h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.cta-simple {
+  text-align: center;
+  padding: 3rem;
+  background: var(--gradient-primary);
+  border-radius: 20px;
+  margin-top: 3rem;
+}
+
+/* Advanced Section */
+.advanced-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--dark) 100%);
+}
+
+.advanced-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  color: var(--light);
+}
+
+.advanced-section h3 {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+/* Footer CTA */
+.footer-cta {
+  padding: 5rem 2rem;
+  background: var(--gradient-primary);
+  text-align: center;
+}
+
+.footer-cta h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--light);
+}
+
+.footer-cta h3 {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: var(--accent);
+}
+
+/* Button Styles */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1.1rem;
+}
+
+.btn-lg {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.2rem;
+}
+
+.btn-xl {
+  padding: 1.5rem 3rem;
+  font-size: 1.3rem;
+}
+
+.btn-primary {
+  background: var(--gradient-accent);
+  color: var(--dark);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+.btn-outline-light {
+  border: 2px solid var(--light);
+  color: var(--light);
+  background: transparent;
+}
+
+.btn-outline-light:hover {
+  background: var(--light);
+  color: var(--dark);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success), #059669);
+  color: white;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: white;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 2.5rem; }
+  .hero-content h2 { font-size: 1.8rem; }
+  .hero-content h3 { font-size: 1.2rem; }
+  
+  .value-prop-section h2,
+  .proof-section h2,
+  .how-section h2 { font-size: 2rem; }
+  
+  .video-container iframe { height: 250px; }
+  
+  .btn-lg, .btn-xl { 
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+</style>

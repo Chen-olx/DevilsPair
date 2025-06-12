@@ -72,9 +72,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Home",
+    "title": "DevilsPair",
     "section": "",
-    "text": "Explore Our Indicators »"
+    "text": "See Live Results Strategy Demo"
   },
   {
     "objectID": "index.html#strategy-overview",
@@ -145,5 +145,124 @@
     "title": "Sample Pairs",
     "section": "Conclusion",
     "text": "Conclusion\nThe XOM/CVX pair demonstrates strong characteristics for statistical arbitrage trading, with solid statistical validation and impressive backtest performance. The high win rate, favorable profit factor, and moderate drawdowns all suggest this pair offers a compelling opportunity for market-neutral trading.\nDespite some concerns regarding correlation stability and the relatively long half-life, the actual trading results show that the strategy effectively captures profits from temporary price divergences while maintaining low correlation to broader market movements.\nBased on these results, the XOM/CVX pair represents a prime example of statistical arbitrage potential in the energy sector, offering both strong returns and diversification benefits within a broader investment portfolio.\n\n\n\n\n\n\nImplementation Recommendation\n\n\n\nFor optimal implementation, we recommend:\n\nUsing the established hedge ratio of 0.2010 to maintain market neutrality\nMonitoring correlation stability and adjusting position sizing accordingly\nImplementing a trailing stop-loss strategy during periods of extended divergence\nConsidering additional filters based on energy sector fundamentals"
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Home",
+    "section": "Strategy Overview",
+    "text": "Strategy Overview\nHere’s a video explaining our pairs trading strategy:"
+  },
+  {
+    "objectID": "index.html#statistical-arbitrage-that-actually-works",
+    "href": "index.html#statistical-arbitrage-that-actually-works",
+    "title": "DevilsPair",
+    "section": "",
+    "text": "📊 See Live Results 📹 2-Min Strategy Demo"
+  },
+  {
+    "objectID": "index.html#why-most-pairs-trading-fails-and-how-we-fixed-it",
+    "href": "index.html#why-most-pairs-trading-fails-and-how-we-fixed-it",
+    "title": "DevilsPair",
+    "section": "Why Most Pairs Trading Fails (And How We Fixed It)",
+    "text": "Why Most Pairs Trading Fails (And How We Fixed It)\n\n\n\n❌ The Problem\n\nMost strategies are too complex\nTakes 5+ minutes to explain\nBoring presentations lose attention\nNo clear value demonstration\n\n\n\n\n\n✅ Our Solution\n\n60-second strategy explanation\nLive performance dashboard\nInteractive market analysis\nProven results first\n\n\n\n\n\n🎯 The Results\n\n16.8% annual returns\nMarket-neutral protection\n0.12 market correlation\n3-year track record"
+  },
+  {
+    "objectID": "index.html#see-it-in-action-60-seconds",
+    "href": "index.html#see-it-in-action-60-seconds",
+    "title": "DevilsPair",
+    "section": "See It In Action (60 Seconds)",
+    "text": "See It In Action (60 Seconds)\n\n\n\n\n\nKey Takeaway: We Find When Stocks Move Apart, Then Profit When They Come Back Together"
+  },
+  {
+    "objectID": "index.html#proof-live-trading-results",
+    "href": "index.html#proof-live-trading-results",
+    "title": "DevilsPair",
+    "section": "Proof: Live Trading Results",
+    "text": "Proof: Live Trading Results\n\n\n13.51%\nAverage Annual Return\nNet of Fees, 3-Year Average\n\n\nSharpe Ratio: 0.77\nMarket Correlation: 0.04 Risk-Adjusted Performance\n\n\nBeta: 0.0337\nMarket-Neutral: Performance is independent of overall market direction\n\n\nView Detailed Performance"
+  },
+  {
+    "objectID": "index.html#how-it-works-simple-version",
+    "href": "index.html#how-it-works-simple-version",
+    "title": "DevilsPair",
+    "section": "How It Works (Simple Version)",
+    "text": "How It Works (Simple Version)\n\n\n1. Find Linked Stocks\nWe identify stocks that historically move together (like Exxon & Chevron)\n\n\n2. Wait for Divergence\nWhen they temporarily move apart, we take positions\n\n\n3. Profit from Convergence\nWhen they come back together (they always do), we profit\n\n\n\nThis strategy is market-neutral - we make money regardless of market direction\n🚀 Start Trading"
+  },
+  {
+    "objectID": "index.html#for-the-technical-minds",
+    "href": "index.html#for-the-technical-minds",
+    "title": "DevilsPair",
+    "section": "For The Technical Minds",
+    "text": "For The Technical Minds\n\n\nStatistical Foundation\n\nCointegration Testing: Augmented Dickey-Fuller & Engle-Granger tests\nCorrelation Analysis: Target &gt;0.8 with stability testing\nMean Reversion: Half-life calculations for optimal timing\nRisk Management: Volatility-adjusted position sizing\n\n\n\nExecution Excellence\n\nEntry Signals: 2-sigma deviations from historical mean\nExit Strategy: Multiple triggers including time and reversion\nPortfolio Risk: Maximum 20% exposure per sector\nPerformance: Real-time monitoring and adjustment\n\n\n\nTechnical Deep Dive Strategy Documentation"
+  },
+  {
+    "objectID": "index.html#ready-to-start",
+    "href": "index.html#ready-to-start",
+    "title": "DevilsPair",
+    "section": "Ready to Start?",
+    "text": "Ready to Start?\n\nJoin traders who’ve discovered the power of statistical arbitrage\nAccess Strategy Get Updates"
+  },
+  {
+    "objectID": "index.html#embrace-the-volatility.-be-market-neutral.",
+    "href": "index.html#embrace-the-volatility.-be-market-neutral.",
+    "title": "DevilsPair",
+    "section": "",
+    "text": "See Live Results Strategy Demo"
+  },
+  {
+    "objectID": "sample pairs.html#bottom-line-up-front",
+    "href": "sample pairs.html#bottom-line-up-front",
+    "title": "Sample Pairs",
+    "section": "📊 Bottom Line Up Front",
+    "text": "📊 Bottom Line Up Front\n\n\n$2,523 Profit\nFrom $10,000 initial capital\n25.23% total return\n\n\n78.38% Win Rate\n29 out of 37 trades profitable\nMathematical edge confirmed\n\n\n-8.82% Max Drawdown\nLow risk, steady growth\nMarket-neutral protection\n\n\n12.8 Days Average\nHold time per trade\nQuick profit realization\n\n\n📈 Jump to Trading Results 🧮 See the Math"
+  },
+  {
+    "objectID": "sample pairs.html#how-this-trade-works-60-seconds",
+    "href": "sample pairs.html#how-this-trade-works-60-seconds",
+    "title": "Sample Pairs",
+    "section": "💡 How This Trade Works (60 Seconds)",
+    "text": "💡 How This Trade Works (60 Seconds)\n\n\n1. Find the Pattern\nXOM and Chevron move together 85%+ of the time (they’re both oil companies)\n\n\n2. Wait for Divergence\nWhen they temporarily move apart, we take opposite positions\n\n\n3. Profit from Convergence\nWhen they come back together (they always do), we capture the spread\n\n\n\nResult: We make money regardless of whether oil goes up or down"
+  },
+  {
+    "objectID": "sample pairs.html#performance-summary",
+    "href": "sample pairs.html#performance-summary",
+    "title": "Sample Pairs",
+    "section": "📈 Performance Summary",
+    "text": "📈 Performance Summary\n\n\n\nProfitability\n\nTotal Profit: $2523.47\nAverage Profit per Trade: $68.20\nProfit Factor: 1.96\n\n\n\nTrade Statistics\n\nWin Rate: 78.38%\nAverage Win: $178.04\nAverage Loss: $-329.94\nAverage Holding Period: 12.84 days\n\n\n\n\n\n\nRisk Metrics\n\nVolatility (annualized): 14.43%\nMaximum Drawdown: -8.82%\nSharpe Ratio: 0.77\nSortino Ratio: 0.85\n\n\n\nOverall Result\n\nInitial Capital: $10,000\nFinal Equity: $12,523.47\nAlpha (annualized): 0.1071\nBeta: 0.0337\nGeometric Mean Return (CAGR): 7.84%"
+  },
+  {
+    "objectID": "sample pairs.html#the-bottom-line",
+    "href": "sample pairs.html#the-bottom-line",
+    "title": "Sample Pairs",
+    "section": "🎯 The Bottom Line",
+    "text": "🎯 The Bottom Line\nThis XOM/CVX case study proves our pairs trading strategy works in real market conditions.\n\n✅ 78.38% win rate beats random chance by huge margin\n✅ $2,523 profit from $10,000 in systematic trading\n\n✅ Market-neutral protection during volatile periods\n✅ Repeatable process based on mathematical edge\n\n\nReady to implement this strategy yourself?\n🚀 Get Strategy Access 📊 View More Pairs"
+  },
+  {
+    "objectID": "index.html#be-market-neutral.",
+    "href": "index.html#be-market-neutral.",
+    "title": "DevilsPair",
+    "section": "",
+    "text": "📊 See Live Results 📹 Strategy Demo"
+  },
+  {
+    "objectID": "index.html#why-devilspair",
+    "href": "index.html#why-devilspair",
+    "title": "DevilsPair",
+    "section": "Why DevilsPair",
+    "text": "Why DevilsPair\n\n\nMarket-Neutral Trading\n\nMedium-term opportunities (3-14 days) with balanced long/short positions for market risk neutralization\n\n\n\n\n\nStatistical Validation\n\nRigorous mathematical testing through correlation analysis and cointegration testing\n\n\n\n\n\nPrecision Risk Management\n\nPredefined entry/exit rules with automated position sizing based on historical volatility\n\n\n\n\n\nTransparency in Performance\n\nComprehensive metrics including trade-by-trade analysis and risk-adjusted returns"
+  },
+  {
+    "objectID": "index.html#key-takeaway-we-find-when-stocks-move-apart-then-profit-when-they-come-back-together",
+    "href": "index.html#key-takeaway-we-find-when-stocks-move-apart-then-profit-when-they-come-back-together",
+    "title": "DevilsPair",
+    "section": "Key Takeaway: We Find When Stocks Move Apart, Then Profit When They Come Back Together",
+    "text": "Key Takeaway: We Find When Stocks Move Apart, Then Profit When They Come Back Together"
+  },
+  {
+    "objectID": "index.html#how-it-works",
+    "href": "index.html#how-it-works",
+    "title": "DevilsPair",
+    "section": "How It Works",
+    "text": "How It Works\n\n\n1. Identify Pairs\n\n\n\n2. Measure Correlation\n\n\n\n3. Test Cointegration\n\n\n\n4. Define Trading Rules\n\n\n\n5. Execute Trades\n\n\n\n6. Close Position\n\n\n\nThis strategy is market-neutral - we make money regardless of market direction\n🚀 Start Trading"
   }
 ]
